@@ -6,10 +6,10 @@ Estória gira :D;
 User interface (dentro das mechanics ou secção principal), se aparecer uma mensagem, menus, ordem do que aparece, pause menu;
 Caso isto ^, o inventário vai lá para dentro;
 Audio começar pelo estilo, se vamos recorrer a assets;
-Tabelas de informção, o que vamos integrar;
+Tabelas de informação -> o que vamos integrar;
 Arte (arte 3d e 2d, icons, menus, etc)
 Sound(music, SFX, tabelas -> ex:main menu music, com descrição, tabela para todos os eventos de som);
-desenhar uma planta com objetos chave, etc;
+Desenhar uma planta da casa, com objetos chave, etc;
 
 Specs Sheet:
 Pontos finais;
