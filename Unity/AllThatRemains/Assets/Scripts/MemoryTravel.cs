@@ -36,9 +36,7 @@ public class MemoryTravel : MonoBehaviour
 
     private void Teleport()
     {
-            _controller.detectCollisions = false;
             _controller.Move(transform.TransformVector(_distance));
-            _controller.detectCollisions = true;
             
             _inMemoryTravel = !_inMemoryTravel;
 

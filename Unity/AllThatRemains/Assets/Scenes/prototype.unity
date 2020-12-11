@@ -11267,7 +11267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842139641175711812, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_StepOffset
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3842139641175711815, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_RootOrder
