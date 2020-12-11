@@ -2,13 +2,18 @@
 
 public class MemoryTravel : MonoBehaviour
 {
+    private GameObject _player;
     private CharacterController _controller;
-    private Vector3             _distance;
-    private bool                _inMemoryTravel;
+    private Vector3 _distance;
+    private bool _inMemoryTravel;
+
+    private GameObject _cube;
+
 
     void Start()
     {
-        _controller     = GetComponent<CharacterController>();
+        _player = GameObject.Find("Player"); 
+        _controller = GetComponent<CharacterController>();
         _inMemoryTravel = false;
     }
 
@@ -23,24 +28,31 @@ public class MemoryTravel : MonoBehaviour
         {
             if (_inMemoryTravel)
             {
-                _distance = new Vector3(-15,0,0);
+                _distance = new Vector3(-15, 0, 0);
             }
             else
             {
-                _distance = new Vector3(15,0,0);
+                _distance = new Vector3(15, 0, 0);
             }
 
             Teleport();
+
+            Debug.Log($"Distance: {_distance}");
         }
     }
 
     private void Teleport()
     {
-            _controller.Move(transform.TransformVector(_distance));
-            
-            _inMemoryTravel = !_inMemoryTravel;
+        _controller.enabled = false;
+        
+        _player.transform.Translate(_distance, Space.World);
 
-            Debug.Log("Memory Travelled.");
-            Debug.Log($"MemoryTravel: {_inMemoryTravel}");
+        _controller.enabled = true;
+
+        _inMemoryTravel = !_inMemoryTravel;
+
+
+        Debug.Log($"MemoryTravel: {_inMemoryTravel}");
+
     }
 }
