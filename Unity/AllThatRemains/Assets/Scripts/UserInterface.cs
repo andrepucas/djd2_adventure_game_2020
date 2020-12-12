@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UserInterface : MonoBehaviour
 {
-    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private GameObject directoryPanel;
     [SerializeField] private GameObject interactionPanel;
     [SerializeField] private Text       interactionText;
 
@@ -15,12 +15,12 @@ public class UserInterface : MonoBehaviour
     
     public void ShowInventory()
     {
-        inventoryPanel.SetActive(true);
+        directoryPanel.SetActive(true);
     }
 
     public void HideInventory()
     {
-        inventoryPanel.SetActive(false);
+        directoryPanel.SetActive(false);
     }
 
     public void ShowInteractionMsg(string message)
