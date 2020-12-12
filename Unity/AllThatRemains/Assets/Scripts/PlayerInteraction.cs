@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    private const float INTERACT_RADIUS = 1f;
+    private const float INTERACT_RADIUS = 1.5f;
 
     [SerializeField]
     private UserInterface userInterface;
