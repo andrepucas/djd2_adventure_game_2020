@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class MemoryTravel : MonoBehaviour
 {
@@ -6,12 +7,15 @@ public class MemoryTravel : MonoBehaviour
     private CharacterController _controller;
     private Vector3             _distance;
     private bool                _inMemoryTravel;
+    private bool                _memTravelReady;
 
     void Start()
     {
         _player         = GameObject.Find("Player"); 
         _controller     = GetComponent<CharacterController>();
         _inMemoryTravel = false;
+        _memTravelReady = true;
+
     }
 
     void Update()
@@ -21,6 +25,7 @@ public class MemoryTravel : MonoBehaviour
 
     private void CheckForMemoryTravel()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (_inMemoryTravel)
@@ -32,8 +37,10 @@ public class MemoryTravel : MonoBehaviour
                 _distance = new Vector3(15, 0, 0);
             }
 
-            Teleport();
-        }
+            if (_memTravelReady == true)
+                Teleport();
+                
+        } 
     }
 
     private void Teleport()
@@ -45,5 +52,14 @@ public class MemoryTravel : MonoBehaviour
         _controller.enabled = true;
 
         _inMemoryTravel = !_inMemoryTravel;
+        _memTravelReady = false;
+
+        StartCoroutine(CooldownCourotine());
+    }
+
+    private IEnumerator CooldownCourotine()
+    {
+        yield return new WaitForSeconds(5);
+        _memTravelReady = true;
     }
 }

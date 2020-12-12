@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33715418356985716}
   - component: {fileID: 23237065310188750}
   - component: {fileID: 64649542798091976}
-  - component: {fileID: 64514079420086468}
+  - component: {fileID: 3801888743231845138}
   m_Layer: 0
   m_Name: table-broken-wood
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7e394c83a3a034e41ac024eea87becf7, type: 3}
---- !u!64 &64514079420086468
-MeshCollider:
+--- !u!65 &3801888743231845138
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,7 +108,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7e394c83a3a034e41ac024eea87becf7, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.9352922, y: 0.8214536, z: 1.1447794}
+  m_Center: {x: 0.1609397, y: 0.4012168, z: 0.027313828}
