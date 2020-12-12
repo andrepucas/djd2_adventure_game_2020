@@ -47,9 +47,13 @@ public class PlayerMovement : MonoBehaviour
         cameraRotation.x -= Input.GetAxis("Mouse Y") * ANGULAR_VELOCITY_FACTOR;
 
         if (cameraRotation.x < 180.0f)
+        {
             cameraRotation.x = Mathf.Min(cameraRotation.x, MAX_HEAD_TILT_ROTATION);
+        }
         else
+        {
             cameraRotation.x = Mathf.Max(cameraRotation.x, MIN_HEAD_TILT_ROTATION);
+        }
 
         _cameraTransform.localEulerAngles = cameraRotation;
     }
@@ -71,8 +75,8 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAcceleration()
     {
         _acceleration.z = Input.GetAxis("Forward");
-        _acceleration.z *= 
-            (_acceleration.z >=0) ? FORWARD_ACCELERATION : BACKWARD_ACCELERATION;
+        _acceleration.z *= (_acceleration.z >=0) ? 
+            FORWARD_ACCELERATION : BACKWARD_ACCELERATION;
 
         _acceleration.x = Input.GetAxis("Strafe") * STRAFE_ACCELERATION;
 
