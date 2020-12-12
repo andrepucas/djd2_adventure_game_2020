@@ -2,18 +2,15 @@
 
 public class MemoryTravel : MonoBehaviour
 {
-    private GameObject _player;
+    private GameObject          _player;
     private CharacterController _controller;
-    private Vector3 _distance;
-    private bool _inMemoryTravel;
-
-    private GameObject _cube;
-
+    private Vector3             _distance;
+    private bool                _inMemoryTravel;
 
     void Start()
     {
-        _player = GameObject.Find("Player"); 
-        _controller = GetComponent<CharacterController>();
+        _player         = GameObject.Find("Player"); 
+        _controller     = GetComponent<CharacterController>();
         _inMemoryTravel = false;
     }
 
@@ -36,8 +33,6 @@ public class MemoryTravel : MonoBehaviour
             }
 
             Teleport();
-
-            Debug.Log($"Distance: {_distance}");
         }
     }
 
@@ -50,9 +45,5 @@ public class MemoryTravel : MonoBehaviour
         _controller.enabled = true;
 
         _inMemoryTravel = !_inMemoryTravel;
-
-
-        Debug.Log($"MemoryTravel: {_inMemoryTravel}");
-
     }
 }
