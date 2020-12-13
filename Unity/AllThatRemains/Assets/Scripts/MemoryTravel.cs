@@ -9,7 +9,7 @@ public class MemoryTravel : MonoBehaviour
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
 
-    void Start()
+    private void Start()
     {
         _player         = GameObject.Find("Player"); 
         _controller     = GetComponent<CharacterController>();
@@ -18,7 +18,7 @@ public class MemoryTravel : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
         CheckForMemoryTravel();
     }

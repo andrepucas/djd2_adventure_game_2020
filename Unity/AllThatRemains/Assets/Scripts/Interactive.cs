@@ -14,7 +14,7 @@ public class Interactive : MonoBehaviour
     private Animator     _animator;
     private int          _currentMsgID;
 
-    void Start()
+    private void Start()
     {
         _animator       = GetComponent<Animator>();
         _currentMsgID   = 0;

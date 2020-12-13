@@ -13,14 +13,14 @@ public class PlayerInteraction : MonoBehaviour
     private List<Interactive>   _inventory;
     private bool                _hasRequiredInteractive;
 
-    void Start()
+    private void Start()
     {
         _camera                 = GetComponentInChildren<Camera>().transform;
         _inventory              = new List<Interactive>();
         _hasRequiredInteractive = false;
     }
 
-    void Update()
+    private void Update()
     {
         LookForInteractive();
         LookForAction();
@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
             out RaycastHit hit, INTERACT_RADIUS))
         {
             Interactive interactive = hit.transform.GetComponent<Interactive>();
-            // Debug.DrawRay(_camera.position, _camera.forward, Color.red, .1f);
+            Debug.DrawRay(_camera.position, _camera.forward, Color.red, .1f);
 
             if (interactive == null)
             {

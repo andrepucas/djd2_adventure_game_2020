@@ -7,7 +7,7 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private GameObject interactionPanel;
     [SerializeField] private Text       interactionText;
 
-    void Start()
+    private void Start()
     {
         HideInventory();
         HideInteractionMsg();

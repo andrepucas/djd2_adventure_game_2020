@@ -10,15 +10,15 @@ public class PlayerMovement : MonoBehaviour
     private const float MAX_BACKWARD_VELOCITY   = 2.0f;
     private const float MAX_STRAFE_VELOCITY     = 3.0f;
     private const float ANGULAR_VELOCITY_FACTOR = 2.0f;
-    private const float MIN_HEAD_TILT_ROTATION  = 270.0f;
-    private const float MAX_HEAD_TILT_ROTATION  = 60.0f;
+    private const float UPPER_HEAD_TILT         = 270.0f;
+    private const float LOWER_HEAD_TILT         = 75.0f;
 
     private CharacterController _controller;
     private Transform           _cameraTransform;
     private Vector3             _acceleration;
     private Vector3             _velocity;
 
-    void Start()
+    private void Start()
     {
         _controller         = GetComponent<CharacterController>();
         _cameraTransform    = GetComponentInChildren<Camera>().transform;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState    = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
         UpdateHeadTilt();
         UpdateRotation();
@@ -48,11 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (cameraRotation.x < 180.0f)
         {
-            cameraRotation.x = Mathf.Min(cameraRotation.x, MAX_HEAD_TILT_ROTATION);
+            cameraRotation.x = Mathf.Min(cameraRotation.x, LOWER_HEAD_TILT);
         }
         else
         {
-            cameraRotation.x = Mathf.Max(cameraRotation.x, MIN_HEAD_TILT_ROTATION);
+            cameraRotation.x = Mathf.Max(cameraRotation.x, UPPER_HEAD_TILT);
         }
 
         _cameraTransform.localEulerAngles = cameraRotation;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, rotation, 0);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         UpdateAcceleration();
         UpdateVelocity();
