@@ -3,19 +3,18 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     private const float INTERACT_RADIUS = 1.5f;
-
-    [SerializeField]
-    private UserInterface userInterface;
     
+    private UserInterface       _ui;
+    private Directory           _directory;
     private Transform           _camera;
     private Interactive         _currentInteractive;
-    //private List<Interactive>   _inventory;
     private bool                _hasRequiredInteractive;
 
     private void Start()
     {
+        _ui                     = UserInterface.instance;
+        _directory              = Directory.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
-        //_inventory              = new List<Interactive>();
         _hasRequiredInteractive = false;
     }
 
@@ -31,6 +30,7 @@ public class PlayerInteraction : MonoBehaviour
             out RaycastHit hit, INTERACT_RADIUS))
         {
             Interactive interactive = hit.transform.GetComponent<Interactive>();
+
             Debug.DrawRay(_camera.position, _camera.forward, Color.red, .1f);
 
             if (interactive == null) 
@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
     private void ClearInteractive()
     {
         _currentInteractive = null;
-        userInterface.HideInteractionMsg();
+        _ui.HideInteractionMsg();
     }
 
     private void NewInteractive(Interactive interactive)
@@ -56,12 +56,12 @@ public class PlayerInteraction : MonoBehaviour
         if (PlayerHasRequiredInteractive())
         {
             _hasRequiredInteractive = true;
-            userInterface.ShowInteractionMsg(interactive.GetInteractionMsg());
+            _ui.ShowInteractionMsg(interactive.GetInteractionMsg());
         }
         else
         {
             _hasRequiredInteractive = false;
-            userInterface.ShowInteractionMsg(interactive.GetRequirementMsg());
+            _ui.ShowInteractionMsg(interactive.GetRequirementMsg());
         }
     }
 
@@ -72,19 +72,11 @@ public class PlayerInteraction : MonoBehaviour
 
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
         {
-            // if (!InInventory(_currentInteractive.requirements[i]))
-            //     return false;
-
-            if (Directory.instance.Contains(_currentInteractive.requirements[i]))
+            if (!_directory.Contains(_currentInteractive.requirements[i]))
                 return false;
         }
         return true;
     }
-
-    // private bool InInventory(Interactive item)
-    // {
-    //     return _inventory.Contains(item);
-    // }
 
     private void LookForAction()
     {
@@ -101,8 +93,8 @@ public class PlayerInteraction : MonoBehaviour
     private void PickUp()
     {
         _currentInteractive.gameObject.SetActive(false);
-        //AddToInventory(_currentInteractive);
-        Directory.instance.Add(_currentInteractive);
+
+        _directory.Add(_currentInteractive);
     }
 
     private void Interaction()
@@ -110,28 +102,14 @@ public class PlayerInteraction : MonoBehaviour
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
         {
             Interactive currentRequirement = _currentInteractive.requirements[i];
+
             currentRequirement.gameObject.SetActive(true);
             currentRequirement.Interact();
-            //RemoveFromInventory(_currentInteractive.requirements[i]);
-            Directory.instance.Remove(_currentInteractive.requirements[i]);
+
+            _directory.Remove(_currentInteractive.requirements[i]);
         }
         _currentInteractive.Interact();
 
         ClearInteractive();
     }
-
-    // private void AddToInventory(Interactive item)
-    // {
-    //     _inventory.Add(item);
-    //     // Add to physical UI
-    // }
-
-    // private void RemoveFromInventory(Interactive item)
-    // {
-    //     _inventory.Remove(item);
-        
-    //     // Remove from physical UI
-
-    //     // Reorganize inventory icons
-    // }
 }

@@ -3,14 +3,11 @@ using System.Collections.Generic;
 
 public class Directory : MonoBehaviour
 {
-    [SerializeField] 
-    private List<Interactive> _inventory = new List<Interactive>();
-
-    [SerializeField] 
-    private List<Interactive> _vhsTapes  = new List<Interactive>();
-
-    [SerializeField] 
-    private List<Interactive> _memories  = new List<Interactive>();
+    private UserInterface _ui;
+    
+    [SerializeField] private List<Interactive> _inventory;
+    [SerializeField] private List<Interactive> _vhsTapes;
+    [SerializeField] private List<Interactive> _journal;
 
     #region Singleton
     public static Directory instance;
@@ -27,16 +24,36 @@ public class Directory : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        _ui         = UserInterface.instance;
+        _inventory  = new List<Interactive>();
+        _vhsTapes   = new List<Interactive>();
+        _journal    = new List<Interactive>();
+    }
+
     public void Add(Interactive item)
     {
-        if (item.pickableType == PickableType.INVENTORY)
-            _inventory.Add(item);
+        if(item.pickableType != PickableType.NULL)
+        {
+            if (item.pickableType == PickableType.INVENTORY)
+            {
+                _inventory.Add(item);
+                _ui.UpdateInventoryIcons(_inventory);
+            }
 
-        else if (item.pickableType == PickableType.VHS)
-            _vhsTapes.Add(item);
+            else if (item.pickableType == PickableType.VHS)
+            {
+                _vhsTapes.Add(item);
+                _ui.UpdateVhsIcons(_vhsTapes);
+            }
 
-        else if (item.pickableType == PickableType.MEMORY)
-            _memories.Add(item);
+            else if (item.pickableType == PickableType.MEMORY)
+            {
+                _journal.Add(item);
+                _ui.UpdateJournalIcons(_journal);
+            }
+        }
 
         else
             Debug.LogWarning("Pickable object is missing a type.");
@@ -45,19 +62,27 @@ public class Directory : MonoBehaviour
     public void Remove(Interactive item)
     {
         if (item.pickableType == PickableType.INVENTORY)
+        {
             _inventory.Remove(item);
+            _ui.UpdateInventoryIcons(_inventory);
+            
+        }
 
         else if (item.pickableType == PickableType.VHS)
+        {
             _vhsTapes.Remove(item);
+            _ui.UpdateVhsIcons(_vhsTapes);
+        }
 
         else if (item.pickableType == PickableType.MEMORY)
-            _memories.Remove(item);
+        {
+            _journal.Remove(item);
+            _ui.UpdateJournalIcons(_journal);
+        }
     }
 
     public bool Contains(Interactive item)
     {
         return _inventory.Contains(item);
     }
-
-
 }

@@ -4,13 +4,14 @@ public class Interactive : MonoBehaviour
 {
     public InteractiveType  type;
     public PickableType     pickableType;
+    public Sprite           icon;
     public Interactive[]    requirements;
 
-    [SerializeField] private string[]       interactionMsgs;
-    [SerializeField] private string         requirementMsg;
-    [SerializeField] private bool           isActive;
-    [SerializeField] private Interactive[]  activationChain;
-    [SerializeField] private Interactive[]  interactionChain;
+    [SerializeField] private string         _requirementMsg;
+    [SerializeField] private string[]       _interactionMsgs;
+    [SerializeField] private bool           _isActive;
+    [SerializeField] private Interactive[]  _activationChain;
+    [SerializeField] private Interactive[]  _interactionChain;
 
     private Animator     _animator;
     private int          _currentMsgID;
@@ -23,17 +24,17 @@ public class Interactive : MonoBehaviour
 
     public string GetInteractionMsg()
     {
-        return interactionMsgs[_currentMsgID];
+        return _interactionMsgs[_currentMsgID];
     }
 
     public string GetRequirementMsg()
     {
-        return requirementMsg;
+        return _requirementMsg;
     }
 
     public void Activate()
     {
-        isActive = true;
+        _isActive = true;
 
         if (_animator != null)
             _animator.SetTrigger("Activate");
@@ -44,7 +45,7 @@ public class Interactive : MonoBehaviour
         if (_animator != null)
             _animator.SetTrigger("Interact");
 
-        if (isActive)
+        if (_isActive)
         {
             ProcessActivationChain();
             ProcessInteractionChain();
@@ -53,28 +54,28 @@ public class Interactive : MonoBehaviour
                 GetComponent<Collider>().enabled = false;
 
             else if (type == InteractiveType.MULTIPLE)
-                _currentMsgID = (_currentMsgID + 1) % interactionMsgs.Length;
+                _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
         }
     }
 
     private void ProcessActivationChain()
     {
-        if (activationChain != null)
+        if (_activationChain != null)
         {
-            for (int i = 0; i < activationChain.Length; i++)
+            for (int i = 0; i < _activationChain.Length; i++)
             {
-                activationChain[i].Activate();
+                _activationChain[i].Activate();
             }
         }
     }
     
     private void ProcessInteractionChain()
     {
-        if (interactionChain != null)
+        if (_interactionChain != null)
         {
-            for (int i = 0; i < interactionChain.Length; i++)
+            for (int i = 0; i < _interactionChain.Length; i++)
             {
-                interactionChain[i].Interact();
+                _interactionChain[i].Interact();
             }
         }
     }

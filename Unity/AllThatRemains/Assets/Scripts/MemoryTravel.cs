@@ -50,7 +50,7 @@ public class MemoryTravel : MonoBehaviour
         _inMemoryTravel = !_inMemoryTravel;
         _memTravelReady = false;
 
-        if (_inMemoryTravel)
+        if (!_inMemoryTravel)
             StartCoroutine(CooldownCourotine());
         else
             _memTravelReady = true;
@@ -58,7 +58,7 @@ public class MemoryTravel : MonoBehaviour
 
     private IEnumerator CooldownCourotine()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         _memTravelReady = true;
     }
 }
