@@ -9808,6 +9808,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 3b20fc9e84b968641b7312bdcdd1ffd8, type: 2}
+    - target: {fileID: 64649542798091976, guid: cd81efad6fd334cfbb23afe0f591c67a, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64649542798091976, guid: cd81efad6fd334cfbb23afe0f591c67a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3801888743231845138, guid: cd81efad6fd334cfbb23afe0f591c67a, type: 3}
       propertyPath: m_Size.x
       value: 2.4585476
