@@ -9,18 +9,26 @@ public class UserInterface : MonoBehaviour
 
     private void Start()
     {
-        HideInventory();
+        ToggleDirectory();
         HideInteractionMsg();
     }
-    
-    public void ShowInventory()
+
+    private void Update()
     {
-        directoryPanel.SetActive(true);
+        LookForDirectory();
     }
 
-    public void HideInventory()
+    private void LookForDirectory()
     {
-        directoryPanel.SetActive(false);
+        if (Input.GetButtonDown("Directory"))
+        {
+            ToggleDirectory();
+        }
+    }
+
+    private void ToggleDirectory()
+    {
+        directoryPanel.SetActive(!directoryPanel.activeSelf);
     }
 
     public void ShowInteractionMsg(string message)

@@ -26,7 +26,7 @@ public class MemoryTravel : MonoBehaviour
     private void CheckForMemoryTravel()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Memory Travel"))
         {
             if (_inMemoryTravel)
             {
