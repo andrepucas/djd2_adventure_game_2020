@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -10,13 +9,13 @@ public class PlayerInteraction : MonoBehaviour
     
     private Transform           _camera;
     private Interactive         _currentInteractive;
-    private List<Interactive>   _inventory;
+    //private List<Interactive>   _inventory;
     private bool                _hasRequiredInteractive;
 
     private void Start()
     {
         _camera                 = GetComponentInChildren<Camera>().transform;
-        _inventory              = new List<Interactive>();
+        //_inventory              = new List<Interactive>();
         _hasRequiredInteractive = false;
     }
 
@@ -34,19 +33,14 @@ public class PlayerInteraction : MonoBehaviour
             Interactive interactive = hit.transform.GetComponent<Interactive>();
             Debug.DrawRay(_camera.position, _camera.forward, Color.red, .1f);
 
-            if (interactive == null)
-            {
+            if (interactive == null) 
                 ClearInteractive();
-            }
+
             else if (interactive != _currentInteractive)
-            {
                 NewInteractive(interactive);
-            }
         }
         else
-        {
             ClearInteractive();
-        }
     }
 
     private void ClearInteractive()
@@ -73,45 +67,42 @@ public class PlayerInteraction : MonoBehaviour
 
     private bool PlayerHasRequiredInteractive()
     {
-        if (_currentInteractive.requirements == null)
-        {
+        if (_currentInteractive.requirements == null) 
             return true;
-        }
 
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
         {
-            if (!InInventory(_currentInteractive.requirements[i]))
-            {
+            // if (!InInventory(_currentInteractive.requirements[i]))
+            //     return false;
+
+            if (Directory.instance.Contains(_currentInteractive.requirements[i]))
                 return false;
-            }
         }
         return true;
     }
 
-    private bool InInventory(Interactive item)
-    {
-        return _inventory.Contains(item);
-    }
+    // private bool InInventory(Interactive item)
+    // {
+    //     return _inventory.Contains(item);
+    // }
 
     private void LookForAction()
     {
         if (Input.GetMouseButtonDown(0) && _currentInteractive != null)
         {
             if (_currentInteractive.type == InteractiveType.PICKABLE)
-            {
                 PickUp();
-            }
+
             else if (_hasRequiredInteractive)
-            {
                 Interaction();
-            }
         }
     }
 
     private void PickUp()
     {
         _currentInteractive.gameObject.SetActive(false);
-        AddToInventory(_currentInteractive);
+        //AddToInventory(_currentInteractive);
+        Directory.instance.Add(_currentInteractive);
     }
 
     private void Interaction()
@@ -121,25 +112,26 @@ public class PlayerInteraction : MonoBehaviour
             Interactive currentRequirement = _currentInteractive.requirements[i];
             currentRequirement.gameObject.SetActive(true);
             currentRequirement.Interact();
-            RemoveFromInventory(_currentInteractive.requirements[i]);
+            //RemoveFromInventory(_currentInteractive.requirements[i]);
+            Directory.instance.Remove(_currentInteractive.requirements[i]);
         }
         _currentInteractive.Interact();
 
         ClearInteractive();
     }
 
-    private void AddToInventory(Interactive item)
-    {
-        _inventory.Add(item);
-        // Add to physical UI
-    }
+    // private void AddToInventory(Interactive item)
+    // {
+    //     _inventory.Add(item);
+    //     // Add to physical UI
+    // }
 
-    private void RemoveFromInventory(Interactive item)
-    {
-        _inventory.Remove(item);
+    // private void RemoveFromInventory(Interactive item)
+    // {
+    //     _inventory.Remove(item);
         
-        // Remove from physical UI
+    //     // Remove from physical UI
 
-        // Reorganize inventory icons
-    }
+    //     // Reorganize inventory icons
+    // }
 }

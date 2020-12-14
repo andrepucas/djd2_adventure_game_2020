@@ -21,9 +21,7 @@ public class UserInterface : MonoBehaviour
     private void LookForDirectory()
     {
         if (Input.GetButtonDown("Directory"))
-        {
             ToggleDirectory();
-        }
     }
 
     private void ToggleDirectory()

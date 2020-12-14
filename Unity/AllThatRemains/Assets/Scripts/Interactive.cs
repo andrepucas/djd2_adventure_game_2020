@@ -3,6 +3,7 @@ using UnityEngine;
 public class Interactive : MonoBehaviour
 {
     public InteractiveType  type;
+    public PickableType     pickableType;
     public Interactive[]    requirements;
 
     [SerializeField] private string[]       interactionMsgs;
@@ -35,17 +36,13 @@ public class Interactive : MonoBehaviour
         isActive = true;
 
         if (_animator != null)
-        {
             _animator.SetTrigger("Activate");
-        }
     }
 
     public void Interact()
     {
         if (_animator != null)
-        {
             _animator.SetTrigger("Interact");
-        }
 
         if (isActive)
         {
@@ -53,14 +50,10 @@ public class Interactive : MonoBehaviour
             ProcessInteractionChain();
 
             if (type == InteractiveType.SINGLE || type == InteractiveType.PICKABLE)
-            {
                 GetComponent<Collider>().enabled = false;
-            }
 
             else if (type == InteractiveType.MULTIPLE)
-            {
                 _currentMsgID = (_currentMsgID + 1) % interactionMsgs.Length;
-            }
         }
     }
 

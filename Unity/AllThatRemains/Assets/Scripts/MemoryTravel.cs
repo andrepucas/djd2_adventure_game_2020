@@ -28,18 +28,14 @@ public class MemoryTravel : MonoBehaviour
         
         if (Input.GetButtonDown("Memory Travel"))
         {
-            if (_inMemoryTravel)
-            {
+            if (_inMemoryTravel) 
                 _distance = new Vector3(-15, 0, 0);
-            }
+
             else
-            {
                 _distance = new Vector3(15, 0, 0);
-            }
 
             if (_memTravelReady == true)
                 Teleport();
-                
         } 
     }
 
@@ -54,7 +50,10 @@ public class MemoryTravel : MonoBehaviour
         _inMemoryTravel = !_inMemoryTravel;
         _memTravelReady = false;
 
-        StartCoroutine(CooldownCourotine());
+        if (_inMemoryTravel)
+            StartCoroutine(CooldownCourotine());
+        else
+            _memTravelReady = true;
     }
 
     private IEnumerator CooldownCourotine()

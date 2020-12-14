@@ -47,13 +47,10 @@ public class PlayerMovement : MonoBehaviour
         cameraRotation.x -= Input.GetAxis("Mouse Y") * ANGULAR_VELOCITY_FACTOR;
 
         if (cameraRotation.x < 180.0f)
-        {
             cameraRotation.x = Mathf.Min(cameraRotation.x, LOWER_HEAD_TILT);
-        }
+
         else
-        {
             cameraRotation.x = Mathf.Max(cameraRotation.x, UPPER_HEAD_TILT);
-        }
 
         _cameraTransform.localEulerAngles = cameraRotation;
     }

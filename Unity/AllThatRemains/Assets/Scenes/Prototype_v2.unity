@@ -2653,6 +2653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  pickableType: 0
   requirements: []
   interactionMsgs:
   - 'Move: Painting'
@@ -5641,6 +5642,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4589396456939460, guid: 749d1a7f57e9347479aa9ba64aef0657, type: 3}
   m_PrefabInstance: {fileID: 747302630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &754209952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535077416, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+  m_PrefabInstance: {fileID: 1671877697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &754209955
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754209952}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf04bf858cb19834897354890b2c9a0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &791250548
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,6 +6916,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
   m_PrefabInstance: {fileID: 1149397595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &969143289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842139641175711810, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
+  m_PrefabInstance: {fileID: 3842139641443684505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &969143295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969143289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b83ac974aeb37a419c26aba12c88bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: []
+  _vhsTapes: []
+  _memories: []
 --- !u!1001 &969243914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9955,6 +10000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  pickableType: 1
   requirements: []
   interactionMsgs:
   - 'Pick up: Note'
@@ -9973,8 +10019,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0.000023633242, y: 0.643233, z: 0.002169121}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1383768631
 GameObject:
   m_ObjectHideFlags: 0
