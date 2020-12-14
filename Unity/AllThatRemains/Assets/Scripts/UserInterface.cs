@@ -15,6 +15,9 @@ public class UserInterface : MonoBehaviour
     private DirectorySlot[] _vhsSlots;
     private DirectorySlot[] _journalSlots;
 
+    private PlayerMovement  _playerMovement;
+    private GameObject      _player;
+
     #region Singleton
     public static UserInterface instance;
 
@@ -32,7 +35,7 @@ public class UserInterface : MonoBehaviour
 
     private void Start()
     {
-        ToggleDirectory();
+        HideDirectory();
         HideInteractionMsg();
 
         _inventorySlots = inventoryPanel.GetComponentsInChildren<DirectorySlot>();
@@ -48,12 +51,23 @@ public class UserInterface : MonoBehaviour
     private void LookForDirectory()
     {
         if (Input.GetButtonDown("Directory"))
-            ToggleDirectory();
+            if (directoryPanel.activeSelf)
+                HideDirectory();
+            else
+                ShowDirectory();
     }
 
-    private void ToggleDirectory()
+    private void HideDirectory()
     {
-        directoryPanel.SetActive(!directoryPanel.activeSelf);
+        Cursor.visible      = false;
+        Cursor.lockState    = CursorLockMode.Locked;
+        directoryPanel.SetActive(false);
+    }
+    private void ShowDirectory()
+    {
+        Cursor.visible      = true;
+        Cursor.lockState    = CursorLockMode.Confined;
+        directoryPanel.SetActive(true);
     }
 
     public void ShowInteractionMsg(string message)

@@ -4,7 +4,7 @@ using System.Collections;
 public class MemoryTravel : MonoBehaviour
 {
     private GameObject          _player;
-    private CharacterController _controller;
+    private CharacterController  _controller;
     private Vector3             _distance;
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
