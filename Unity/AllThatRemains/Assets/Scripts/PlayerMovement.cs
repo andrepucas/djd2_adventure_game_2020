@@ -4,10 +4,10 @@ public class PlayerMovement : MonoBehaviour
 {
     private const float FORWARD_ACCELERATION    = 10.0f;
     private const float BACKWARD_ACCELERATION   = 10.0f;
-    private const float STRAFE_ACCELERATION     = 10.0f;
+    private const float STRAFE_ACCELERATION     = 20.0f;
     private const float GRAVITY_ACCELERATION    = 10.0f;
-    private const float MAX_FORWARD_VELOCITY    = 4.0f;
-    private const float MAX_BACKWARD_VELOCITY   = 2.0f;
+    private const float MAX_FORWARD_VELOCITY    = 3.5f;
+    private const float MAX_BACKWARD_VELOCITY   = 2.5f;
     private const float MAX_STRAFE_VELOCITY     = 3.0f;
     private const float ANGULAR_VELOCITY_FACTOR = 2.0f;
     private const float UPPER_HEAD_TILT         = 270.0f;
