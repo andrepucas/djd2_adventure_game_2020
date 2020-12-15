@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 public class UserInterface : MonoBehaviour
 {
-    [SerializeField] private GameObject directoryPanel;
-    [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private GameObject vhsPanel;
-    [SerializeField] private GameObject journalPanel;
-    [SerializeField] private GameObject interactionPanel;
-    [SerializeField] private Text       interactionText;
+    [SerializeField] private GameObject _directoryPanel;
+    [SerializeField] private GameObject _inventoryPanel;
+    [SerializeField] private GameObject _vhsPanel;
+    [SerializeField] private GameObject _journalPanel;
+    [SerializeField] private GameObject _interactionPanel;
+    [SerializeField] private Image      _image;
+    [SerializeField] private Text       _interactionText;
 
     private DirectorySlot[] _inventorySlots;
     private DirectorySlot[] _vhsSlots;
@@ -38,9 +39,9 @@ public class UserInterface : MonoBehaviour
         HideDirectory();
         HideInteractionMsg();
 
-        _inventorySlots = inventoryPanel.GetComponentsInChildren<DirectorySlot>();
-        _vhsSlots       = vhsPanel.GetComponentsInChildren<DirectorySlot>();
-        _journalSlots   = journalPanel.GetComponentsInChildren<DirectorySlot>();
+        _inventorySlots = _inventoryPanel.GetComponentsInChildren<DirectorySlot>();
+        _vhsSlots       = _vhsPanel.GetComponentsInChildren<DirectorySlot>();
+        _journalSlots   = _journalPanel.GetComponentsInChildren<DirectorySlot>();
     }
 
     private void Update()
@@ -51,7 +52,7 @@ public class UserInterface : MonoBehaviour
     private void LookForDirectory()
     {
         if (Input.GetButtonDown("Directory"))
-            if (directoryPanel.activeSelf)
+            if (_directoryPanel.activeSelf)
                 HideDirectory();
             else
                 ShowDirectory();
@@ -61,24 +62,36 @@ public class UserInterface : MonoBehaviour
     {
         Cursor.visible      = false;
         Cursor.lockState    = CursorLockMode.Locked;
-        directoryPanel.SetActive(false);
+        _directoryPanel.SetActive(false);
     }
     private void ShowDirectory()
     {
         Cursor.visible      = true;
         Cursor.lockState    = CursorLockMode.Confined;
-        directoryPanel.SetActive(true);
+        _directoryPanel.SetActive(true);
     }
 
     public void ShowInteractionMsg(string message)
     {
-        interactionText.text = message;
-        interactionPanel.SetActive(true);
+        _interactionText.text = message;
+        _interactionPanel.SetActive(true);
     }
 
     public void HideInteractionMsg()
     {
-        interactionPanel.SetActive(false);
+        _interactionPanel.SetActive(false);
+    }
+
+    public void ShowImage(Sprite icon)
+    {
+        _image.sprite     = icon;
+        _image.enabled    = true;
+    }
+
+    public void HideImage()
+    {
+        _image.sprite     = null;
+        _image.enabled    = false;
     }
 
     public void UpdateInventoryIcons(List<Interactive> inventoryItems)

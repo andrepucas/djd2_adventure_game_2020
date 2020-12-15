@@ -5,7 +5,9 @@ public class Interactive : MonoBehaviour
     public InteractiveType  type;
     public PickableType     pickableType;
     public Sprite           icon;
+    public Sprite           popUpImage; 
     public Interactive[]    requirements;
+
 
     [SerializeField] private string         _requirementMsg;
     [SerializeField] private string[]       _interactionMsgs;
