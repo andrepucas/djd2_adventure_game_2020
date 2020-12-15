@@ -36,7 +36,7 @@ public class Directory : MonoBehaviour
     {
         if(item.pickableType != PickableType.NULL)
         {
-            _ui.ShowImage(item.icon);
+            _ui.ShowInspectMode(item.icon);
 
             if (item.pickableType == PickableType.INVENTORY)
             {

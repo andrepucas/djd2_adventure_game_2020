@@ -127,6 +127,6 @@ public class PlayerInteraction : MonoBehaviour
     private void ClearTheFukingPaper()
     {
         if(Input.GetMouseButtonDown(0))
-            _ui.HideImage();
+            _ui.HideInspectMode();
     }
 }

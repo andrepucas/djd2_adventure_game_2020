@@ -9,8 +9,9 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private GameObject _vhsPanel;
     [SerializeField] private GameObject _journalPanel;
     [SerializeField] private GameObject _interactionPanel;
-    [SerializeField] private Image      _image;
     [SerializeField] private Text       _interactionText;
+    [SerializeField] private GameObject _inspectMode;
+    [SerializeField] private Image      _inspectImage;
 
     private DirectorySlot[] _inventorySlots;
     private DirectorySlot[] _vhsSlots;
@@ -18,6 +19,7 @@ public class UserInterface : MonoBehaviour
 
     private PlayerMovement  _playerMovement;
     private GameObject      _player;
+
 
     #region Singleton
     public static UserInterface instance;
@@ -38,10 +40,14 @@ public class UserInterface : MonoBehaviour
     {
         HideDirectory();
         HideInteractionMsg();
+        HideInspectMode();
 
         _inventorySlots = _inventoryPanel.GetComponentsInChildren<DirectorySlot>();
         _vhsSlots       = _vhsPanel.GetComponentsInChildren<DirectorySlot>();
         _journalSlots   = _journalPanel.GetComponentsInChildren<DirectorySlot>();
+
+        _player = GameObject.Find("Player");
+        _playerMovement = _player.GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -60,15 +66,17 @@ public class UserInterface : MonoBehaviour
 
     private void HideDirectory()
     {
+        //_playerMovement.enabled = true;
+        _directoryPanel.SetActive(false);
         Cursor.visible      = false;
         Cursor.lockState    = CursorLockMode.Locked;
-        _directoryPanel.SetActive(false);
     }
     private void ShowDirectory()
     {
+        //_playerMovement.enabled = false;
+        _directoryPanel.SetActive(true);
         Cursor.visible      = true;
         Cursor.lockState    = CursorLockMode.Confined;
-        _directoryPanel.SetActive(true);
     }
 
     public void ShowInteractionMsg(string message)
@@ -82,16 +90,20 @@ public class UserInterface : MonoBehaviour
         _interactionPanel.SetActive(false);
     }
 
-    public void ShowImage(Sprite icon)
+    public void ShowInspectMode(Sprite icon)
     {
-        _image.sprite     = icon;
-        _image.enabled    = true;
+        _inspectImage.sprite    = icon;
+        //_inspectImage.enabled    = true;
+
+        _inspectMode.SetActive(true);
     }
 
-    public void HideImage()
+    public void HideInspectMode()
     {
-        _image.sprite     = null;
-        _image.enabled    = false;
+        _inspectImage.sprite     = null;
+        //_inspectImage.enabled    = false;
+
+        _inspectMode.SetActive(false);
     }
 
     public void UpdateInventoryIcons(List<Interactive> inventoryItems)
