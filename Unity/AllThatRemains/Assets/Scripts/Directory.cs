@@ -36,6 +36,8 @@ public class Directory : MonoBehaviour
     {
         if(item.pickableType != PickableType.NULL)
         {
+            _ui.ShowImage(item.icon);
+
             if (item.pickableType == PickableType.INVENTORY)
             {
                 _inventory.Add(item);
@@ -57,6 +59,7 @@ public class Directory : MonoBehaviour
 
         else
             Debug.LogWarning("Pickable object is missing a type.");
+        
     }
 
     public void Remove(Interactive item)

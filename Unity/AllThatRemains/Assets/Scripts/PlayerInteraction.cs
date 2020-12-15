@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     private Transform           _camera;
     private Interactive         _currentInteractive;
     private bool                _hasRequiredInteractive;
+    private bool                _isInspecting;
 
     private void Start()
     {
@@ -16,12 +18,19 @@ public class PlayerInteraction : MonoBehaviour
         _directory              = Directory.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
         _hasRequiredInteractive = false;
+        _isInspecting           = false;
     }
 
     private void Update()
     {
         LookForInteractive();
         LookForAction();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isInspecting)
+            ClearTheFukingPaper();
     }
 
     private void LookForInteractive()
@@ -95,6 +104,8 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive.gameObject.SetActive(false);
 
         _directory.Add(_currentInteractive);
+
+        _isInspecting = true;
     }
 
     private void Interaction()
@@ -111,5 +122,11 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive.Interact();
 
         ClearInteractive();
+    }
+
+    private void ClearTheFukingPaper()
+    {
+        if(Input.GetMouseButtonDown(0))
+            _ui.HideImage();
     }
 }
