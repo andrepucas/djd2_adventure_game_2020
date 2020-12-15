@@ -7,11 +7,10 @@ public class Interactive : MonoBehaviour
     public Sprite           icon;
     public Sprite           popUpImage; 
     public Interactive[]    requirements;
-
+    public bool             isActive;
 
     [SerializeField] private string         _requirementMsg;
     [SerializeField] private string[]       _interactionMsgs;
-    [SerializeField] private bool           _isActive;
     [SerializeField] private Interactive[]  _activationChain;
     [SerializeField] private Interactive[]  _interactionChain;
 
@@ -36,10 +35,7 @@ public class Interactive : MonoBehaviour
 
     public void Activate()
     {
-        _isActive = true;
-
-        if (_animator != null)
-            _animator.SetTrigger("Activate");
+        isActive = true;
     }
 
     public void Interact()
@@ -47,7 +43,7 @@ public class Interactive : MonoBehaviour
         if (_animator != null)
             _animator.SetTrigger("Interact");
 
-        if (_isActive)
+        if (isActive)
         {
             ProcessActivationChain();
             ProcessInteractionChain();
