@@ -2456,7 +2456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -2571,11 +2571,12 @@ MonoBehaviour:
   icon: {fileID: 0}
   popUpImage: {fileID: 0}
   requirements: []
+  isActive: 1
   _requirementMsg: 
   _interactionMsgs:
   - 'Move: Painting'
-  _isActive: 1
-  _activationChain: []
+  _activationChain:
+  - {fileID: 1046762986}
   _interactionChain: []
 --- !u!95 &236609016
 Animator:
@@ -4207,36 +4208,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2a9bcab9060d28d468fc3c4d93775e7d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
---- !u!1 &474185471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 474185472}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &474185472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474185471}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 1.7, z: 6.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2109733874}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482025981
 GameObject:
   m_ObjectHideFlags: 0
@@ -8572,11 +8543,11 @@ MonoBehaviour:
   icon: {fileID: 0}
   popUpImage: {fileID: 0}
   requirements: []
+  isActive: 0
   _requirementMsg: 
   _interactionMsgs:
   - 'Open: Safe Door'
   - 'Close: Safe Door'
-  _isActive: 1
   _activationChain: []
   _interactionChain: []
 --- !u!1001 &1050293401
@@ -11361,10 +11332,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9028d87eb3cfed641a5d0584ed4e1b41, type: 3}
   popUpImage: {fileID: 0}
   requirements: []
+  isActive: 1
   _requirementMsg: 
   _interactionMsgs:
   - 'Pick up: Note'
-  _isActive: 1
   _activationChain: []
   _interactionChain: []
 --- !u!135 &1363719281
@@ -16443,7 +16414,6 @@ Transform:
   m_Children:
   - {fileID: 813920233}
   - {fileID: 493418032}
-  - {fileID: 474185472}
   - {fileID: 253936132}
   m_Father: {fileID: 1410333125}
   m_RootOrder: 3
@@ -17210,7 +17180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5333178016766453043, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5333178016766453043, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
       propertyPath: m_LocalPosition.x

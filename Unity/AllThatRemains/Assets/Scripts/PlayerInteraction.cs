@@ -30,7 +30,13 @@ public class PlayerInteraction : MonoBehaviour
     private void FixedUpdate()
     {
         if (_isInspecting)
-            ClearTheFukingPaper();
+            ClearInspectScreen();
+    }
+
+    private void ClearInspectScreen()
+    {
+        if(Input.GetMouseButtonDown(0))
+            _ui.HideInspectMode();
     }
 
     private void LookForInteractive()
@@ -60,17 +66,20 @@ public class PlayerInteraction : MonoBehaviour
 
     private void NewInteractive(Interactive interactive)
     {
-        _currentInteractive = interactive;
+        if (interactive.isActive)
+        {
+            _currentInteractive = interactive;
 
-        if (PlayerHasRequiredInteractive())
-        {
-            _hasRequiredInteractive = true;
-            _ui.ShowInteractionMsg(interactive.GetInteractionMsg());
-        }
-        else
-        {
-            _hasRequiredInteractive = false;
-            _ui.ShowInteractionMsg(interactive.GetRequirementMsg());
+            if (PlayerHasRequiredInteractive())
+            {
+                _hasRequiredInteractive = true;
+                _ui.ShowInteractionMsg(interactive.GetInteractionMsg());
+            }
+            else
+            {
+                _hasRequiredInteractive = false;
+                _ui.ShowInteractionMsg(interactive.GetRequirementMsg());
+            }
         }
     }
 
@@ -122,11 +131,5 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive.Interact();
 
         ClearInteractive();
-    }
-
-    private void ClearTheFukingPaper()
-    {
-        if(Input.GetMouseButtonDown(0))
-            _ui.HideInspectMode();
     }
 }
