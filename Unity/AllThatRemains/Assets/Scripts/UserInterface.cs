@@ -17,10 +17,6 @@ public class UserInterface : MonoBehaviour
     private DirectorySlot[] _vhsSlots;
     private DirectorySlot[] _journalSlots;
 
-    private PlayerMovement  _playerMovement;
-    private GameObject      _player;
-
-
     #region Singleton
     public static UserInterface instance;
 
@@ -45,9 +41,6 @@ public class UserInterface : MonoBehaviour
         _inventorySlots = _inventoryPanel.GetComponentsInChildren<DirectorySlot>();
         _vhsSlots       = _vhsPanel.GetComponentsInChildren<DirectorySlot>();
         _journalSlots   = _journalPanel.GetComponentsInChildren<DirectorySlot>();
-
-        _player = GameObject.Find("Player");
-        _playerMovement = _player.GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -66,14 +59,12 @@ public class UserInterface : MonoBehaviour
 
     private void HideDirectory()
     {
-        //_playerMovement.enabled = true;
         _directoryPanel.SetActive(false);
         Cursor.visible      = false;
         Cursor.lockState    = CursorLockMode.Locked;
     }
     private void ShowDirectory()
     {
-        //_playerMovement.enabled = false;
         _directoryPanel.SetActive(true);
         Cursor.visible      = true;
         Cursor.lockState    = CursorLockMode.Confined;
@@ -93,7 +84,6 @@ public class UserInterface : MonoBehaviour
     public void ShowInspectMode(Sprite icon)
     {
         _inspectImage.sprite    = icon;
-        //_inspectImage.enabled    = true;
 
         _inspectMode.SetActive(true);
     }
@@ -101,7 +91,6 @@ public class UserInterface : MonoBehaviour
     public void HideInspectMode()
     {
         _inspectImage.sprite     = null;
-        //_inspectImage.enabled    = false;
 
         _inspectMode.SetActive(false);
     }
