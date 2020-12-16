@@ -25,17 +25,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         LookForInteractive();
         LookForAction();
+        LookForInspectMode();
     }
 
-    private void FixedUpdate()
+    private void LookForInspectMode()
     {
-        if (_isInspecting)
-            ClearInspectScreen();
-    }
-
-    private void ClearInspectScreen()
-    {
-        if(Input.GetMouseButtonDown(0))
+        if(_isInspecting && Input.GetMouseButtonDown(1))
             _ui.HideInspectMode();
     }
 
