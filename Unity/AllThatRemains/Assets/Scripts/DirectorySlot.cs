@@ -3,19 +3,20 @@ using UnityEngine.UI;
 
 public class DirectorySlot : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private Button _button;
     
     public void AddSlot(Interactive item)
     {
-        button.image.sprite     = item.icon;
-        button.image.enabled    = true;
-        button.enabled          = true;
+        _button.image.sprite     = item.icon;
+        _button.image.enabled    = true;
+        _button.enabled          = true;
+
     }
 
     public void ClearSlot()
     {
-        button.image.sprite     = null;
-        button.image.enabled    = false;
-        button.enabled          = false;
+        _button.image.sprite     = null;
+        _button.image.enabled    = false;
+        _button.enabled          = false;
     }
 }
