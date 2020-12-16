@@ -4,17 +4,19 @@ using System.Collections;
 public class PlayerInteraction : MonoBehaviour
 {
     private const float INTERACT_RADIUS = 1.5f;
+
+    public bool inCombinationMode;
     
     private UserInterface       _ui;
     private PlayerDirectory     _directory;
     private PlayerMovement      _movement;
     private PlayerMemoryTravel  _memoryTravel;
     private Transform           _camera;
-    private Transform           _originalCamera;
+    private Vector3             _originalCameraPos;
+    private Quaternion          _originalCameraRot;
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
     private bool                _hasRequiredInteractive;
-    private bool                _inCombinationMode;
     private bool                _isInspecting;
 
     private void Start()
@@ -24,9 +26,10 @@ public class PlayerInteraction : MonoBehaviour
         _movement               = PlayerMovement.instance;
         _memoryTravel           = PlayerMemoryTravel.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
-        _originalCamera         = GetComponentInChildren<Camera>().transform;
+        _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
+        _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
         _hasRequiredInteractive = false;
-        _inCombinationMode      = false;
+        inCombinationMode      = false;
         _isInspecting           = false;
 
         SafeLockControl.Solved += CombinationSolved;
@@ -36,8 +39,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         LookForInteractive();
         LookForAction();
-        LookForQuitCombination();
-        LookForInspectMode();
+        QuitCombination();
+        QuitInspectMode();
     }
 
     private void LookForInteractive()
@@ -123,7 +126,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Combination()
     {
-        _inCombinationMode = true;
+        inCombinationMode = true;
         
         _comboInteractive = _currentInteractive;
         
@@ -138,10 +141,43 @@ public class PlayerInteraction : MonoBehaviour
 
     private void MoveCameraTo(GameObject viewPoint)
     {
-        _originalCamera.position = _camera.position;
-
         _camera.position = viewPoint.transform.position;
         _camera.rotation = viewPoint.transform.rotation;
+    }
+
+    private void QuitCombination()
+    {
+        if (inCombinationMode)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                inCombinationMode = false;
+
+                _currentInteractive = _comboInteractive;
+                _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+                
+                _movement.enabled       = true;
+                _memoryTravel.enabled   = true;
+                _camera.localPosition   = _originalCameraPos;
+                _camera.localRotation   = _originalCameraRot;
+                _ui.HideCursor();
+            }
+        }
+    }
+
+    private void CombinationSolved()
+    {
+        inCombinationMode = false;
+
+        _currentInteractive = _comboInteractive;
+        _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+        
+        _movement.enabled       = true;
+        _memoryTravel.enabled   = true;
+        _camera.localPosition   = _originalCameraPos;
+        _ui.HideCursor();
+
+        Interaction();
     }
 
     private void Interaction()
@@ -160,41 +196,7 @@ public class PlayerInteraction : MonoBehaviour
         ClearInteractive();
     }
 
-    private void LookForQuitCombination()
-    {
-        if (_inCombinationMode)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                _inCombinationMode = false;
-
-                _currentInteractive = _comboInteractive;
-                _currentInteractive.GetComponent<BoxCollider>().enabled = true;
-                
-                _movement.enabled       = true;
-                _memoryTravel.enabled   = true;
-                _camera.position        = _originalCamera.position;
-                _ui.HideCursor();
-            }
-        }
-    }
-
-    private void CombinationSolved()
-    {
-        _inCombinationMode = false;
-
-        _currentInteractive = _comboInteractive;
-        _currentInteractive.GetComponent<BoxCollider>().enabled = true;
-        
-        _movement.enabled       = true;
-        _memoryTravel.enabled   = true;
-        _camera.position        = _originalCamera.position;
-        _ui.HideCursor();
-
-        Interaction();
-    }
-
-    private void LookForInspectMode()
+    private void QuitInspectMode()
     {
         if(_isInspecting && Input.GetMouseButtonDown(1))
             _ui.HideInspectMode();
