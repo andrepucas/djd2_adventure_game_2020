@@ -4,8 +4,6 @@ using System.Collections;
 public class PlayerInteraction : MonoBehaviour
 {
     private const float INTERACT_RADIUS = 1.5f;
-
-    public bool inCombinationMode;
     
     private UserInterface       _ui;
     private PlayerDirectory     _directory;
@@ -17,6 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
     private bool                _hasRequiredInteractive;
+    private bool                _inCombinationMode;
     private bool                _isInspecting;
 
     private void Start()
@@ -29,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
         _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
         _hasRequiredInteractive = false;
-        inCombinationMode      = false;
+        _inCombinationMode      = false;
         _isInspecting           = false;
 
         SafeLockControl.Solved += CombinationSolved;
@@ -126,7 +125,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Combination()
     {
-        inCombinationMode = true;
+        _inCombinationMode = true;
         
         _comboInteractive = _currentInteractive;
         
@@ -147,11 +146,11 @@ public class PlayerInteraction : MonoBehaviour
 
     private void QuitCombination()
     {
-        if (inCombinationMode)
+        if (_inCombinationMode)
         {
             if (Input.GetMouseButtonDown(1))
             {
-                inCombinationMode = false;
+                _inCombinationMode = false;
 
                 _currentInteractive = _comboInteractive;
                 _currentInteractive.GetComponent<BoxCollider>().enabled = true;
@@ -167,7 +166,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void CombinationSolved()
     {
-        inCombinationMode = false;
+        _inCombinationMode = false;
 
         _currentInteractive = _comboInteractive;
         _currentInteractive.GetComponent<BoxCollider>().enabled = true;
