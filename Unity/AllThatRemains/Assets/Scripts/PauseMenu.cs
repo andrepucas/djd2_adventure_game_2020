@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
         _isPaused = true;
         _movement.enabled = false;
         _memoryTravel.enabled = false;
-        _ui.ShowCursor();
+        _ui.ShowCursor("free");
     }
 
     private void LoadMenu()

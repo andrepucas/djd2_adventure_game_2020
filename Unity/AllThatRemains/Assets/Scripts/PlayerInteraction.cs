@@ -135,7 +135,7 @@ public class PlayerInteraction : MonoBehaviour
         _memoryTravel.enabled   = false;
 
         MoveCameraTo(_currentInteractive.viewPoint);
-        _ui.ShowCursor();
+        _ui.ShowCursor("");
     }
 
     private void MoveCameraTo(GameObject viewPoint)

@@ -65,7 +65,7 @@ public class UserInterface : MonoBehaviour
     private void ShowDirectory()
     {
         _directoryPanel.SetActive(true);
-        ShowCursor();
+        ShowCursor("");
     }
 
     public void ShowInteractionMsg(string message)
@@ -135,9 +135,14 @@ public class UserInterface : MonoBehaviour
         Cursor.lockState    = CursorLockMode.Locked;
     }
 
-    public void ShowCursor()
+    public void ShowCursor(string type)
     {
-        Cursor.visible      = true;
-        Cursor.lockState    = CursorLockMode.Confined;
+        Cursor.visible = true;
+
+        if (type == "free")
+            Cursor.lockState = CursorLockMode.None;
+
+        else
+            Cursor.lockState = CursorLockMode.Confined;
     }
 }
