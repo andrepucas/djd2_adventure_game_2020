@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 84168614}
   - component: {fileID: 84168613}
   m_Layer: 5
-  m_Name: Slots_Grid
+  m_Name: SlotsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,7 +1311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1534926244138248, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_Name
-      value: Book_Open
+      value: BookOpen
       objectReference: {fileID: 0}
     - target: {fileID: 4626836919411728, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_RootOrder
@@ -1471,7 +1471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133088591}
   m_Layer: 0
-  m_Name: TV_Group
+  m_Name: TVGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2452,11 +2452,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Painting_Green
+      value: PaintingGreen
       objectReference: {fileID: 0}
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -2911,7 +2911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729692458276588, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_Name
-      value: TV_Table_2
+      value: TVSupport_2
       objectReference: {fileID: 0}
     - target: {fileID: 4805107732931074, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_RootOrder
@@ -3177,7 +3177,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729692458276588, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_Name
-      value: TV_Table_2
+      value: TVSupport_2
       objectReference: {fileID: 0}
     - target: {fileID: 4805107732931074, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_RootOrder
@@ -3275,7 +3275,7 @@ GameObject:
   - component: {fileID: 333615340}
   - component: {fileID: 333615339}
   m_Layer: 5
-  m_Name: Quit_Button
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4067,7 +4067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Big
+      value: BigTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -4148,7 +4148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_Name
-      value: book-closed
+      value: BookClosed_1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_RootOrder
@@ -4292,7 +4292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_Name
-      value: book-closed (2)
+      value: BookClosed_3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_RootOrder
@@ -4615,7 +4615,7 @@ GameObject:
   - component: {fileID: 553637173}
   - component: {fileID: 553637172}
   m_Layer: 5
-  m_Name: Menu_Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4800,7 +4800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Picture_Frame_Brown
+      value: PaintingBrown
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -5044,7 +5044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1293564353697226, guid: f1732e42e04c34d68bd94ec089baf9f6, type: 3}
       propertyPath: m_Name
-      value: Carpet_Table
+      value: TableCarpet
       objectReference: {fileID: 0}
     - target: {fileID: 1293564353697226, guid: f1732e42e04c34d68bd94ec089baf9f6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5228,7 +5228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Big
+      value: BigTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -5417,7 +5417,7 @@ GameObject:
   - component: {fileID: 653536108}
   - component: {fileID: 653536107}
   m_Layer: 5
-  m_Name: Resume_Button
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5573,7 +5573,6 @@ Transform:
   - {fileID: 889327030}
   - {fileID: 1987072416}
   - {fileID: 1981322484}
-  - {fileID: 690821881}
   m_Father: {fileID: 1410333125}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5589,7 +5588,7 @@ GameObject:
   - component: {fileID: 670910111}
   - component: {fileID: 670910110}
   m_Layer: 5
-  m_Name: VHS_Tapes
+  m_Name: VHSTapes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5815,7 +5814,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1293564353697226, guid: f1732e42e04c34d68bd94ec089baf9f6, type: 3}
       propertyPath: m_Name
-      value: Carpet_Table
+      value: TableCarpet
       objectReference: {fileID: 0}
     - target: {fileID: 1293564353697226, guid: f1732e42e04c34d68bd94ec089baf9f6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6172,7 +6171,7 @@ GameObject:
   - component: {fileID: 725708076}
   - component: {fileID: 725708075}
   m_Layer: 5
-  m_Name: Inspect_Mode
+  m_Name: InspectMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7129,19 +7128,19 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 669245587}
+    m_TransformParent: {fileID: 1054157055}
     m_Modifications:
     - target: {fileID: 1534926244138248, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_Name
-      value: Book_Open
+      value: BookOpen
       objectReference: {fileID: 0}
     - target: {fileID: 4626836919411728, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4626836919411728, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.954
+      value: 2.9540005
       objectReference: {fileID: 0}
     - target: {fileID: 4626836919411728, guid: 0bafe321caa3d475daa026d61222d930, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7198,7 +7197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Picture_Frame_Grey
+      value: PaintingGrey
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -7974,7 +7973,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Painting_Brown
+      value: PaintingBrown
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -8654,6 +8653,7 @@ Transform:
   - {fileID: 1733373431}
   - {fileID: 915167535}
   - {fileID: 1204063659}
+  - {fileID: 690821881}
   m_Father: {fileID: 669245587}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8993,7 +8993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1481326055228522, guid: 209d1084f90d24df2903902969097dae, type: 3}
       propertyPath: m_Name
-      value: library
+      value: Bookshelf_2
       objectReference: {fileID: 0}
     - target: {fileID: 4530123885950388, guid: 209d1084f90d24df2903902969097dae, type: 3}
       propertyPath: m_RootOrder
@@ -9304,6 +9304,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1195987457}
     m_Modifications:
+    - target: {fileID: 1535077416, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Name
+      value: PointLight
+      objectReference: {fileID: 0}
     - target: {fileID: 1535077418, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Range
       value: 15
@@ -9330,7 +9334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
-      value: Lamp_Ground
+      value: TableLamp
       objectReference: {fileID: 0}
     - target: {fileID: 4157901504216538, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_RootOrder
@@ -9412,7 +9416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Painting_Grey
+      value: PaintingGrey
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -9616,7 +9620,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Dining
+      value: DiningTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -9702,7 +9706,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406736954355838, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_Name
-      value: book-closed-green
+      value: BookGreen
       objectReference: {fileID: 0}
     - target: {fileID: 4411124178289476, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_RootOrder
@@ -10255,7 +10259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8656272904998969515, guid: d5e0855e19f46e24e89899e1835f3a5c, type: 3}
       propertyPath: m_Name
-      value: Doorway_East
+      value: Doorway_E
       objectReference: {fileID: 0}
     - target: {fileID: 8661358630933112913, guid: d5e0855e19f46e24e89899e1835f3a5c, type: 3}
       propertyPath: m_RootOrder
@@ -10610,7 +10614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2610035562541763924, guid: a2f16b22c8925b3408f2764e018e80e3, type: 3}
       propertyPath: m_Name
-      value: Doorway_South
+      value: Doorway_S
       objectReference: {fileID: 0}
     - target: {fileID: 4134742513901930763, guid: a2f16b22c8925b3408f2764e018e80e3, type: 3}
       propertyPath: m_Name
@@ -10659,7 +10663,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1551659312669164, guid: cd81efad6fd334cfbb23afe0f591c67a, type: 3}
       propertyPath: m_Name
-      value: table-broken-wood
+      value: BrokenDiningTable
       objectReference: {fileID: 0}
     - target: {fileID: 4715773489894512, guid: cd81efad6fd334cfbb23afe0f591c67a, type: 3}
       propertyPath: m_RootOrder
@@ -10883,7 +10887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729692458276588, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_Name
-      value: TV_Table_1
+      value: TVSupport_1
       objectReference: {fileID: 0}
     - target: {fileID: 4805107732931074, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_RootOrder
@@ -11072,7 +11076,7 @@ GameObject:
   - component: {fileID: 1327236480}
   - component: {fileID: 1327236479}
   m_Layer: 5
-  m_Name: Pause_Menu
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11147,7 +11151,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1360803820172768, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_Name
-      value: Picture_Frame_Green
+      value: PaintingGreen
       objectReference: {fileID: 0}
     - target: {fileID: 4827684823679328, guid: d4667e17b0c824aa1bffbe52c32d5543, type: 3}
       propertyPath: m_RootOrder
@@ -11461,7 +11465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410333125}
   m_Layer: 0
-  m_Name: Living_Room
+  m_Name: LivingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11704,7 +11708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729692458276588, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_Name
-      value: TV_Table_1
+      value: TVSupport_1
       objectReference: {fileID: 0}
     - target: {fileID: 4805107732931074, guid: 8fae16b0f2bd34fe6a3ff811a21d146b, type: 3}
       propertyPath: m_RootOrder
@@ -12091,7 +12095,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_Name
-      value: book-closed (1)
+      value: BookClosed_2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_RootOrder
@@ -12300,7 +12304,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_Name
-      value: book-closed (3)
+      value: BookClosed_4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_RootOrder
@@ -12473,7 +12477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1757951304376804, guid: 177f6a0f913834b7b8238a6779aaeadb, type: 3}
       propertyPath: m_Name
-      value: books-pile
+      value: BookPile
       objectReference: {fileID: 0}
     - target: {fileID: 4814926133833686, guid: 177f6a0f913834b7b8238a6779aaeadb, type: 3}
       propertyPath: m_RootOrder
@@ -12530,7 +12534,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_Name
-      value: book-closed (5)
+      value: BookClosed_5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ed1a52ee616436c92f3a3d5b908339, type: 3}
       propertyPath: m_RootOrder
@@ -12599,7 +12603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406736954355838, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_Name
-      value: book-closed-red
+      value: BookRed
       objectReference: {fileID: 0}
     - target: {fileID: 4411124178289476, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_RootOrder
@@ -12736,7 +12740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596017984}
   m_Layer: 0
-  m_Name: Living_Room
+  m_Name: LivingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12766,6 +12770,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1195987457}
     m_Modifications:
+    - target: {fileID: 1535077416, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Name
+      value: PointLight
+      objectReference: {fileID: 0}
     - target: {fileID: 1535077417, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.29
@@ -12788,7 +12796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
-      value: Lamp_Ceiling
+      value: CeilingLamp
       objectReference: {fileID: 0}
     - target: {fileID: 4157901504216538, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_RootOrder
@@ -13182,7 +13190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Corner
+      value: CornerTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -13333,6 +13341,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1772752503}
     m_Modifications:
+    - target: {fileID: 1535077416, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Name
+      value: PointLight
+      objectReference: {fileID: 0}
     - target: {fileID: 1535077417, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.29
@@ -13359,7 +13371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
-      value: Lamp_Ceiling
+      value: CeilingLamp
       objectReference: {fileID: 0}
     - target: {fileID: 4157901504216538, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_RootOrder
@@ -13515,7 +13527,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1594971979238264, guid: 7969ab2d8778749f0b28fd93f0d80494, type: 3}
       propertyPath: m_Name
-      value: Carpet_Couch
+      value: CouchCarpet
       objectReference: {fileID: 0}
     - target: {fileID: 4626757035800714, guid: 7969ab2d8778749f0b28fd93f0d80494, type: 3}
       propertyPath: m_RootOrder
@@ -13648,7 +13660,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Corner
+      value: CornerTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -13928,7 +13940,7 @@ GameObject:
   - component: {fileID: 1746748699}
   - component: {fileID: 1746748701}
   m_Layer: 5
-  m_Name: Slots_Grid
+  m_Name: SlotsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14431,7 +14443,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406736954355838, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_Name
-      value: book-closed-yellow
+      value: BookYellow
       objectReference: {fileID: 0}
     - target: {fileID: 4411124178289476, guid: 805dbaaff6e66469687d73a2784af69d, type: 3}
       propertyPath: m_RootOrder
@@ -14496,7 +14508,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Entrance
+      value: EntranceTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -14581,7 +14593,7 @@ GameObject:
   - component: {fileID: 1806193721}
   - component: {fileID: 1806193720}
   m_Layer: 5
-  m_Name: Slots_Grid
+  m_Name: SlotsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14691,7 +14703,7 @@ GameObject:
   - component: {fileID: 1815541037}
   - component: {fileID: 1815541036}
   m_Layer: 5
-  m_Name: Interaction_Text
+  m_Name: InteractionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15362,6 +15374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1772752503}
     m_Modifications:
+    - target: {fileID: 1535077416, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Name
+      value: PointLight
+      objectReference: {fileID: 0}
     - target: {fileID: 1535077418, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Range
       value: 15
@@ -15392,7 +15408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
-      value: Lamp_Ground
+      value: TableLamp
       objectReference: {fileID: 0}
     - target: {fileID: 4157901504216538, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_RootOrder
@@ -16399,7 +16415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092378004}
   m_Layer: 0
-  m_Name: TV_Group
+  m_Name: TVGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16469,7 +16485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1886126668315858, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_Name
-      value: Table_Entrance
+      value: EntranceTable
       objectReference: {fileID: 0}
     - target: {fileID: 4828949845237886, guid: 34aa3fc438758473c9e3d9ad570cf23f, type: 3}
       propertyPath: m_RootOrder
@@ -16775,7 +16791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1594971979238264, guid: 7969ab2d8778749f0b28fd93f0d80494, type: 3}
       propertyPath: m_Name
-      value: Carpet_Couch
+      value: CouchCarpet
       objectReference: {fileID: 0}
     - target: {fileID: 4626757035800714, guid: 7969ab2d8778749f0b28fd93f0d80494, type: 3}
       propertyPath: m_RootOrder
@@ -16881,7 +16897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2610035562541763924, guid: a2f16b22c8925b3408f2764e018e80e3, type: 3}
       propertyPath: m_Name
-      value: Doorway_South
+      value: Doorway_S
       objectReference: {fileID: 0}
     - target: {fileID: 4134742513901930763, guid: a2f16b22c8925b3408f2764e018e80e3, type: 3}
       propertyPath: m_Name
@@ -16903,6 +16919,10 @@ PrefabInstance:
     - target: {fileID: 1116259682520040513, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842139641073541057, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
+      propertyPath: m_Name
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 3842139641073541058, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: near clip plane
@@ -17216,6 +17236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2109733874}
     m_Modifications:
+    - target: {fileID: 1862170971026533332, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
+      propertyPath: m_Name
+      value: WheelLock_1
+      objectReference: {fileID: 0}
     - target: {fileID: 2310606956603619222, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
       propertyPath: m_Center.z
       value: -0.25
@@ -17267,6 +17291,10 @@ PrefabInstance:
     - target: {fileID: 5333178016766453044, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
       propertyPath: m_Name
       value: Safe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333178017014346448, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
+      propertyPath: m_Name
+      value: SafeDoor
       objectReference: {fileID: 0}
     - target: {fileID: 5333178017014346463, guid: 5a0e0b42e1c58cd4eb2d1080f6ab3eb4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17360,7 +17388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8656272904998969515, guid: d5e0855e19f46e24e89899e1835f3a5c, type: 3}
       propertyPath: m_Name
-      value: Doorway_East
+      value: Doorway_E
       objectReference: {fileID: 0}
     - target: {fileID: 8661358630933112913, guid: d5e0855e19f46e24e89899e1835f3a5c, type: 3}
       propertyPath: m_RootOrder
