@@ -1,18 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class SafeLockRotate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action<string, int> Rotated = delegate {};
+
+    private bool    _coroutineAllowed;
+    private int     _wheelLockNumber;
+
+    private void Start()
     {
-        
+        _coroutineAllowed    = true;
+        _wheelLockNumber     = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        if (_coroutineAllowed)
+        {
+            StartCoroutine("RotateWheelLock");
+        }
+    }
+
+    private IEnumerator RotateWheelLock()
+    {
+        _coroutineAllowed = false;
+
+        for (int i = 0; i < 11; i++)
+        {
+            transform.Rotate(-36f, 0f, 0f, Space.World);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        _coroutineAllowed = true;
+
+        _wheelLockNumber += 1;
+
+        if (_wheelLockNumber > 9)
+            _wheelLockNumber = 0;
+
+        Rotated(name, _wheelLockNumber);
     }
 }

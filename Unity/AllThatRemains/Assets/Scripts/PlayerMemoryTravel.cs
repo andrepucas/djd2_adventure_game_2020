@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MemoryTravel : MonoBehaviour
+public class PlayerMemoryTravel : MonoBehaviour
 {
     private GameObject          _player;
     private CharacterController  _controller;
     private Vector3             _distance;
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
+
+    #region Singleton
+    public static PlayerMemoryTravel instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one player memory travel.");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
 
     private void Start()
     {

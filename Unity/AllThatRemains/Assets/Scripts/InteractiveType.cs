@@ -4,6 +4,8 @@ public enum InteractiveType
 {
     PICKABLE,
 
+    COMBINATION,
+
     SINGLE,
 
     MULTIPLE

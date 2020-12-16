@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Directory : MonoBehaviour
+public class PlayerDirectory : MonoBehaviour
 {
     private UserInterface _ui;
     
@@ -10,13 +10,13 @@ public class Directory : MonoBehaviour
     [SerializeField] private List<Interactive> _journal;
 
     #region Singleton
-    public static Directory instance;
+    public static PlayerDirectory instance;
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one inventory.");
+            Debug.LogWarning("More than one directory.");
             return;
         }
 

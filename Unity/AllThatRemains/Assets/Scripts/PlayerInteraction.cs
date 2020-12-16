@@ -6,32 +6,38 @@ public class PlayerInteraction : MonoBehaviour
     private const float INTERACT_RADIUS = 1.5f;
     
     private UserInterface       _ui;
-    private Directory           _directory;
+    private PlayerDirectory     _directory;
+    private PlayerMovement      _movement;
+    private PlayerMemoryTravel  _memoryTravel;
     private Transform           _camera;
+    private Transform           _originalCamera;
     private Interactive         _currentInteractive;
+    private Interactive         _comboInteractive;
     private bool                _hasRequiredInteractive;
+    private bool                _inCombinationMode;
     private bool                _isInspecting;
 
     private void Start()
     {
         _ui                     = UserInterface.instance;
-        _directory              = Directory.instance;
+        _directory              = PlayerDirectory.instance;
+        _movement               = PlayerMovement.instance;
+        _memoryTravel           = PlayerMemoryTravel.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
+        _originalCamera         = GetComponentInChildren<Camera>().transform;
         _hasRequiredInteractive = false;
+        _inCombinationMode      = false;
         _isInspecting           = false;
+
+        SafeLockControl.Solved += CombinationSolved;
     }
 
     private void Update()
     {
         LookForInteractive();
         LookForAction();
+        LookForQuitCombination();
         LookForInspectMode();
-    }
-
-    private void LookForInspectMode()
-    {
-        if(_isInspecting && Input.GetMouseButtonDown(1))
-            _ui.HideInspectMode();
     }
 
     private void LookForInteractive()
@@ -98,6 +104,9 @@ public class PlayerInteraction : MonoBehaviour
             if (_currentInteractive.type == InteractiveType.PICKABLE)
                 PickUp();
 
+            else if (_currentInteractive.type == InteractiveType.COMBINATION)
+                Combination();
+
             else if (_hasRequiredInteractive)
                 Interaction();
         }
@@ -110,6 +119,29 @@ public class PlayerInteraction : MonoBehaviour
         _directory.Add(_currentInteractive);
 
         _isInspecting = true;
+    }
+
+    private void Combination()
+    {
+        _inCombinationMode = true;
+        
+        _comboInteractive = _currentInteractive;
+        
+        _currentInteractive.GetComponent<BoxCollider>().enabled = false;
+        
+        _movement.enabled       = false;
+        _memoryTravel.enabled   = false;
+
+        MoveCameraTo(_currentInteractive.viewPoint);
+        _ui.ShowCursor();
+    }
+
+    private void MoveCameraTo(GameObject viewPoint)
+    {
+        _originalCamera.position = _camera.position;
+
+        _camera.position = viewPoint.transform.position;
+        _camera.rotation = viewPoint.transform.rotation;
     }
 
     private void Interaction()
@@ -126,5 +158,45 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive.Interact();
 
         ClearInteractive();
+    }
+
+    private void LookForQuitCombination()
+    {
+        if (_inCombinationMode)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                _inCombinationMode = false;
+
+                _currentInteractive = _comboInteractive;
+                _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+                
+                _movement.enabled       = true;
+                _memoryTravel.enabled   = true;
+                _camera.position        = _originalCamera.position;
+                _ui.HideCursor();
+            }
+        }
+    }
+
+    private void CombinationSolved()
+    {
+        _inCombinationMode = false;
+
+        _currentInteractive = _comboInteractive;
+        _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+        
+        _movement.enabled       = true;
+        _memoryTravel.enabled   = true;
+        _camera.position        = _originalCamera.position;
+        _ui.HideCursor();
+
+        Interaction();
+    }
+
+    private void LookForInspectMode()
+    {
+        if(_isInspecting && Input.GetMouseButtonDown(1))
+            _ui.HideInspectMode();
     }
 }

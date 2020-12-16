@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Interactive : MonoBehaviour
 {
+    public bool             isActive;
     public InteractiveType  type;
     public PickableType     pickableType;
+    public GameObject       viewPoint;
     public Sprite           icon;
-    public Sprite           popUpImage; 
     public Interactive[]    requirements;
-    public bool             isActive;
 
     [SerializeField] private string         _requirementMsg;
     [SerializeField] private string[]       _interactionMsgs;
@@ -48,10 +48,10 @@ public class Interactive : MonoBehaviour
             ProcessActivationChain();
             ProcessInteractionChain();
 
-            if (type == InteractiveType.SINGLE || type == InteractiveType.PICKABLE)
+            if (type != InteractiveType.MULTIPLE)
                 GetComponent<Collider>().enabled = false;
 
-            else if (type == InteractiveType.MULTIPLE)
+            else
                 _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
         }
     }

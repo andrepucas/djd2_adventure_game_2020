@@ -60,14 +60,12 @@ public class UserInterface : MonoBehaviour
     private void HideDirectory()
     {
         _directoryPanel.SetActive(false);
-        Cursor.visible      = false;
-        Cursor.lockState    = CursorLockMode.Locked;
+        HideCursor();
     }
     private void ShowDirectory()
     {
         _directoryPanel.SetActive(true);
-        Cursor.visible      = true;
-        Cursor.lockState    = CursorLockMode.Confined;
+        ShowCursor();
     }
 
     public void ShowInteractionMsg(string message)
@@ -129,5 +127,17 @@ public class UserInterface : MonoBehaviour
             else
                 _journalSlots[i].ClearSlot();
         }
+    }
+
+    public void HideCursor()
+    {
+        Cursor.visible      = false;
+        Cursor.lockState    = CursorLockMode.Locked;
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.visible      = true;
+        Cursor.lockState    = CursorLockMode.Confined;
     }
 }

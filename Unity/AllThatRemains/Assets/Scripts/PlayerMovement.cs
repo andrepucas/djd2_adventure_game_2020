@@ -18,6 +18,21 @@ public class PlayerMovement : MonoBehaviour
     private Vector3             _acceleration;
     private Vector3             _velocity;
 
+    #region Singleton
+    public static PlayerMovement instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one player movement.");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
+
     private void Start()
     {
         _controller         = GetComponent<CharacterController>();

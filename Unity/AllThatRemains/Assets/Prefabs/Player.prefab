@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1116259682520040513}
   - component: {fileID: 1828010468}
   - component: {fileID: 1828010465}
+  - component: {fileID: 8520756907358328426}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3842139641175711810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359338adb7f897546b0525dc458da9ae, type: 3}
+  m_Script: {fileID: 11500000, guid: bbbebd913f15d154eb7ce239b2b88225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1828010465
@@ -172,4 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b977662db6a345944132d2b3a9bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userInterface: {fileID: 0}
+--- !u!114 &8520756907358328426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842139641175711810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b83ac974aeb37a419c26aba12c88bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: []
+  _vhsTapes: []
+  _journal: []
