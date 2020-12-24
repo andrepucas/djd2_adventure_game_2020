@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerMemoryTravel : MonoBehaviour
 {
-    private GameObject          _player;
-    private CharacterController  _controller;
-    private Vector3             _distance;
+    private Transform           _playerTransf, _cameraTransf;
+    private CharacterController _controller;
+    private Vector3             _distance, _height;
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
 
@@ -26,11 +26,11 @@ public class PlayerMemoryTravel : MonoBehaviour
 
     private void Start()
     {
-        _player         = GameObject.Find("Player"); 
+        _playerTransf   = GameObject.Find("Player").transform;
+        _cameraTransf   = GetComponentInChildren<Camera>().transform;
         _controller     = GetComponent<CharacterController>();
         _inMemoryTravel = false;
         _memTravelReady = true;
-
     }
 
     private void Update()
@@ -43,11 +43,17 @@ public class PlayerMemoryTravel : MonoBehaviour
         
         if (Input.GetButtonDown("Memory Travel"))
         {
-            if (_inMemoryTravel) 
-                _distance = new Vector3(-15, 0, 0);
+            if (_inMemoryTravel)
+            {
+                _distance   = new Vector3(-15f, 0f, 0f);
+                _height     = new Vector3(0f, 0.7f, 0f);
+            }
 
             else
-                _distance = new Vector3(15, 0, 0);
+            {
+                _distance   = new Vector3(15f, 0f, 0f);
+                _height     = new Vector3(0f, 0.3f, 0f);
+            }
 
             if (_memTravelReady == true)
                 Teleport();
@@ -58,7 +64,8 @@ public class PlayerMemoryTravel : MonoBehaviour
     {
         _controller.enabled = false;
         
-        _player.transform.Translate(_distance, Space.World);
+        _playerTransf.Translate(_distance, Space.World);
+        _cameraTransf.localPosition = _height;
 
         _controller.enabled = true;
 
