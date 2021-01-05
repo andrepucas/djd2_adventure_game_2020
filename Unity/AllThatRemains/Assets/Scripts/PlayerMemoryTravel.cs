@@ -72,15 +72,16 @@ public class PlayerMemoryTravel : MonoBehaviour
         _inMemoryTravel = !_inMemoryTravel;
         _memTravelReady = false;
 
-        if (!_inMemoryTravel)
+        if (!_memTravelReady)
+        {
             StartCoroutine(CooldownCourotine());
-        else
-            _memTravelReady = true;
+        }
+        else _memTravelReady = true;
     }
 
     private IEnumerator CooldownCourotine()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(.5f);
         _memTravelReady = true;
     }
 }
