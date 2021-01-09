@@ -14310,7 +14310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  type: 3
+  type: 2
   pickableType: 0
   viewPoint: {fileID: 0}
   icon: {fileID: 0}
@@ -18919,6 +18919,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.data[0]
+      value: Open Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.data[1]
+      value: Close Door
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
 --- !u!4 &1405733826 stripped
@@ -19699,7 +19715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  type: 1
+  type: 3
   pickableType: 0
   viewPoint: {fileID: 2073429108}
   icon: {fileID: 0}
@@ -27161,6 +27177,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Study
       objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.data[0]
+      value: Open Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515388168706121836, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
+      propertyPath: _interactionMsgs.Array.data[1]
+      value: Close Door
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee2c83dc36e02c240aab5f981b5cc45f, type: 3}
 --- !u!4 &2016325724 stripped
@@ -28922,6 +28954,10 @@ PrefabInstance:
     - target: {fileID: 3842139641175711810, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842139641175711810, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3842139641175711810, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_TagString
