@@ -48,8 +48,7 @@ public class PlayerInteraction : MonoBehaviour
             out RaycastHit hit, INTERACT_RADIUS))
         {
             Interactive interactive = hit.transform.GetComponent<Interactive>();
-
-            Debug.DrawRay(_camera.position, _camera.forward, Color.red, .1f);
+            Debug.DrawRay(_camera.position, _camera.forward, Color.red, .2f);
 
             if (interactive == null) 
                 ClearInteractive();
