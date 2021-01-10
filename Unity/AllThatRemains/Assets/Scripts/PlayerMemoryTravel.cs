@@ -29,13 +29,13 @@ public class PlayerMemoryTravel : MonoBehaviour
         {
             if (_inMemoryTravel)
             {
-                _distance   = new Vector3(-35f, 0f, 0f);
+                _distance   = new Vector3(0f, 0f, -170f);
                 _height     = new Vector3(0f, 0.7f, 0f);
             }
 
             else
             {
-                _distance   = new Vector3(35f, 0f, 0f);
+                _distance   = new Vector3(0f, 0f, 170f);
                 _height     = new Vector3(0f, 0.3f, 0f);
             }
 
