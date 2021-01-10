@@ -9,21 +9,6 @@ public class PlayerMemoryTravel : MonoBehaviour
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
 
-    #region Singleton
-    public static PlayerMemoryTravel instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one player memory travel.");
-            return;
-        }
-
-        instance = this;
-    }
-    #endregion
-
     private void Start()
     {
         _playerTransf   = GameObject.Find("Player").transform;
@@ -40,18 +25,17 @@ public class PlayerMemoryTravel : MonoBehaviour
 
     private void CheckForMemoryTravel()
     {
-        
-        if (Input.GetButtonDown("Memory Travel"))
+        if (Input.GetButtonDown("Memory Travel") && !Cursor.visible)
         {
             if (_inMemoryTravel)
             {
-                _distance   = new Vector3(-35f, 0f, 0f);
+                _distance   = new Vector3(0f, 0f, -170f);
                 _height     = new Vector3(0f, 0.7f, 0f);
             }
 
             else
             {
-                _distance   = new Vector3(35f, 0f, 0f);
+                _distance   = new Vector3(0f, 0f, 170f);
                 _height     = new Vector3(0f, 0.3f, 0f);
             }
 

@@ -7,8 +7,6 @@ public class PlayerInteraction : MonoBehaviour
     
     private UserInterface       _ui;
     private PlayerDirectory     _directory;
-    private PlayerMovement      _movement;
-    private PlayerMemoryTravel  _memoryTravel;
     private Transform           _camera;
     private Vector3             _originalCameraPos;
     private Quaternion          _originalCameraRot;
@@ -22,8 +20,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         _ui                     = UserInterface.instance;
         _directory              = PlayerDirectory.instance;
-        _movement               = PlayerMovement.instance;
-        _memoryTravel           = PlayerMemoryTravel.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
         _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
@@ -129,9 +125,6 @@ public class PlayerInteraction : MonoBehaviour
         _comboInteractive = _currentInteractive;
         
         _currentInteractive.GetComponent<BoxCollider>().enabled = false;
-        
-        _movement.enabled       = false;
-        _memoryTravel.enabled   = false;
 
         MoveCameraTo(_currentInteractive.viewPoint);
         _ui.ShowCursor("");
@@ -153,9 +146,7 @@ public class PlayerInteraction : MonoBehaviour
 
                 _currentInteractive = _comboInteractive;
                 _currentInteractive.GetComponent<BoxCollider>().enabled = true;
-                
-                _movement.enabled       = true;
-                _memoryTravel.enabled   = true;
+
                 _camera.localPosition   = _originalCameraPos;
                 _camera.localRotation   = _originalCameraRot;
                 _ui.HideCursor();
@@ -169,9 +160,7 @@ public class PlayerInteraction : MonoBehaviour
 
         _currentInteractive = _comboInteractive;
         _currentInteractive.GetComponent<BoxCollider>().enabled = true;
-        
-        _movement.enabled       = true;
-        _memoryTravel.enabled   = true;
+
         _camera.localPosition   = _originalCameraPos;
         _ui.HideCursor();
 

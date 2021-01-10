@@ -32,14 +32,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  type: 2
+  type: 1
   pickableType: 0
   viewPoint: {fileID: 0}
   icon: {fileID: 0}
   requirements: []
   _requirementMsg: 
   _interactionMsgs:
-  - 'Open: Door'
+  - Open Door
   _activationChain: []
   _interactionChain: []
 --- !u!1 &1914403804734421311
@@ -106,7 +106,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 3b20fc9e84b968641b7312bdcdd1ffd8, type: 2}
   - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
-  - {fileID: 2100000, guid: a7862d5615928c34e868320de65c2777, type: 2}
+  - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23783406559351536, guid: 1e212581da1d146fca5233289052a32f, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e212581da1d146fca5233289052a32f, type: 3}
 --- !u!4 &2313144444922814394 stripped
