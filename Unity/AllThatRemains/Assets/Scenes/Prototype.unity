@@ -37134,6 +37134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3842139641073541058, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
+      propertyPath: far clip plane
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3842139641175711810, guid: 8ec257ff97396744dac2624fbe2fd6bb, type: 3}
       propertyPath: m_Name
       value: Player
