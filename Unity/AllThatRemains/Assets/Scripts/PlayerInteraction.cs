@@ -79,6 +79,10 @@ public class PlayerInteraction : MonoBehaviour
                 _ui.ShowInteractionMsg(interactive.GetRequirementMsg());
             }
         }
+        // Fixes bug where player would be able to interact with a non active 
+        // interactive if he was looking at an active one right before 
+        // using memory travel. (Present/Past Doors)
+        else ClearInteractive();
     }
 
     private bool PlayerHasRequiredInteractive()

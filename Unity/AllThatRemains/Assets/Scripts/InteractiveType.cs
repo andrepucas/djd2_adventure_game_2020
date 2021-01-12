@@ -8,6 +8,8 @@ public enum InteractiveType
 
     MULTIPLE,
 
-    COMBINATION
+    COMBINATION,
+
+    REMOTE
 }
 

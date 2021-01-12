@@ -41,7 +41,8 @@ MonoBehaviour:
   _interactionMsgs:
   - Open Door
   _activationChain: []
-  _interactionChain: []
+  _interactionChain:
+  - {fileID: 0}
 --- !u!1 &1914403804734421311
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1396157326604562, guid: a89fb4c5717e04af7b826dd5fa720ae3, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: DoorPresent
       objectReference: {fileID: 0}
     - target: {fileID: 4832627744815994, guid: a89fb4c5717e04af7b826dd5fa720ae3, type: 3}
       propertyPath: m_RootOrder
@@ -226,7 +227,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1018846311968998, guid: 1e212581da1d146fca5233289052a32f, type: 3}
       propertyPath: m_Name
-      value: house-wall-door
+      value: Inside
       objectReference: {fileID: 0}
     - target: {fileID: 4942520803145756, guid: 1e212581da1d146fca5233289052a32f, type: 3}
       propertyPath: m_RootOrder
