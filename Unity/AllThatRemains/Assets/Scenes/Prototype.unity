@@ -10953,7 +10953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &604591064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13429,7 +13429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &725708074
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38188,10 +38188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1746748698}
     m_Modifications:
-    - target: {fileID: 1186793970, guid: 87204d1c33d09724a8fae092d8fc0ffd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000020980835
-      objectReference: {fileID: 0}
     - target: {fileID: 1186793971, guid: 87204d1c33d09724a8fae092d8fc0ffd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

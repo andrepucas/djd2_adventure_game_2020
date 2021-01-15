@@ -86,6 +86,11 @@ public class UserInterface : MonoBehaviour
         _inspectMode.SetActive(true);
     }
 
+    public void ShowInspectModeFromImage(Image image)
+    {
+        ShowInspectMode(image.sprite);
+    }
+
     public void HideInspectMode()
     {
         _inspectImage.sprite     = null;
