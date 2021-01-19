@@ -23,15 +23,6 @@ public class PauseMenu : MonoBehaviour
                 Pause ();
     }
 
-    private void Resume ()
-    {
-        _ui.HideCursor();
-
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        _isPaused = false;
-    }
-
     private void Pause ()
     {
         _ui.ShowCursor("free");
@@ -41,13 +32,22 @@ public class PauseMenu : MonoBehaviour
         _isPaused = true;
     }
 
-    private void LoadMenu()
+    void Resume ()
+    {
+        _ui.HideCursor();
+
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        _isPaused = false;
+    }
+
+    void LoadMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
-    private void QuitGame ()
+    void QuitGame ()
     {
         Application.Quit();
     }
