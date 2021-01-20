@@ -12,6 +12,7 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private Text       _interactionText;
     [SerializeField] private GameObject _inspectMode;
     [SerializeField] private Image      _inspectImage;
+    [SerializeField] private Image      _crosshair;
 
     private DirectorySlot[] _inventorySlots;
     private DirectorySlot[] _vhsSlots;
@@ -133,16 +134,18 @@ public class UserInterface : MonoBehaviour
                 _journalSlots[i].ClearSlot();
         }
     }
-
+    
     public void HideCursor()
     {
+        _crosshair.enabled  = true;
         Cursor.visible      = false;
         Cursor.lockState    = CursorLockMode.Locked;
     }
 
     public void ShowCursor(string type)
     {
-        Cursor.visible = true;
+        _crosshair.enabled  = false;
+        Cursor.visible      = true;
 
         if (type == "free")
             Cursor.lockState = CursorLockMode.None;
