@@ -1,28 +1,32 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Interactive : MonoBehaviour
 {
-    public bool             isActive;
-    public InteractiveType  type;
-    public PickableType     pickableType;
-    public GameObject       viewPoint;
-    public Sprite           icon;
-    public Interactive[]    requirements;
+    public bool isActive;
+    public InteractiveType type;
+    public PickableType pickableType;
+    public GameObject viewPoint;
+    public Sprite icon;
+    public Interactive[] requirements;
 
-    [SerializeField] private string         _requirementMsg;
-    [SerializeField] private string[]       _interactionMsgs;
-    [SerializeField] private Interactive[]  _activationChain;
-    [SerializeField] private Interactive[]  _interactionChain;
 
-    private Animator     _animator;
-    private AudioSource  _audioSource;
-    private int          _currentMsgID;
+    [SerializeField] private string _requirementMsg;
+    [SerializeField] private string[] _interactionMsgs;
+    [SerializeField] private Interactive[] _activationChain;
+    [SerializeField] private Interactive[] _interactionChain;
+    [SerializeField] private AudioClip[] _audioClips;
+
+
+    private Animator _animator;
+    private AudioSource _audioSource;
+    private int _currentMsgID;
 
     private void Start()
     {
-        _animator       = GetComponent<Animator>();
-        _currentMsgID   = 0;
-        _audioSource    = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
+        _currentMsgID = 0;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public string GetInteractionMsg()
@@ -44,9 +48,12 @@ public class Interactive : MonoBehaviour
     {
         if (_animator != null)
             _animator.SetTrigger("Interact");
-        
+
         if (_audioSource != null)
+        {
+            _audioSource.clip = _audioClips[0];
             _audioSource.Play(0);
+        }
 
         if (isActive)
         {
@@ -71,7 +78,7 @@ public class Interactive : MonoBehaviour
             }
         }
     }
-    
+
     private void ProcessInteractionChain()
     {
         if (_interactionChain != null)
@@ -81,5 +88,11 @@ public class Interactive : MonoBehaviour
                 _interactionChain[i].Interact();
             }
         }
+    }
+
+    public void PlayLockedAudio()
+    {
+        _audioSource.clip = _audioClips[1];
+        _audioSource.Play(0);
     }
 }
