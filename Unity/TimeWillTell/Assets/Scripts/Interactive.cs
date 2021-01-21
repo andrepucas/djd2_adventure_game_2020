@@ -15,12 +15,14 @@ public class Interactive : MonoBehaviour
     [SerializeField] private Interactive[]  _interactionChain;
 
     private Animator     _animator;
+    private AudioSource  _audioSource;
     private int          _currentMsgID;
 
     private void Start()
     {
         _animator       = GetComponent<Animator>();
         _currentMsgID   = 0;
+        _audioSource    = GetComponent<AudioSource>();
     }
 
     public string GetInteractionMsg()
@@ -42,6 +44,9 @@ public class Interactive : MonoBehaviour
     {
         if (_animator != null)
             _animator.SetTrigger("Interact");
+        
+        if (_audioSource != null)
+            _audioSource.Play(0);
 
         if (isActive)
         {
