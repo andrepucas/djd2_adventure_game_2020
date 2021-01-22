@@ -33,11 +33,6 @@ public class Interactive : MonoBehaviour
         return _requirementMsg;
     }
 
-    public void Activate()
-    {
-        isActive = true;
-    }
-
     public void Interact()
     {
         if (_animator != null)
@@ -48,11 +43,14 @@ public class Interactive : MonoBehaviour
             ProcessActivationChain();
             ProcessInteractionChain();
 
-            if (type != InteractiveType.MULTIPLE)
-                GetComponent<Collider>().enabled = false;
+            if (type == InteractiveType.MULTIPLE || 
+                type == InteractiveType.TV_REMOTE)
+            {
+                _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
+            }
 
             else
-                _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
+                GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -62,7 +60,8 @@ public class Interactive : MonoBehaviour
         {
             for (int i = 0; i < _activationChain.Length; i++)
             {
-                _activationChain[i].Activate();
+                if(!_activationChain[i].isActive)
+                    _activationChain[i].isActive = true;
             }
         }
     }

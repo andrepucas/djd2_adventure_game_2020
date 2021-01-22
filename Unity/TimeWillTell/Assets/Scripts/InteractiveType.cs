@@ -10,6 +10,8 @@ public enum InteractiveType
 
     COMBINATION,
 
-    REMOTE
+    CONTROLLED,
+
+    TV_REMOTE
 }
 

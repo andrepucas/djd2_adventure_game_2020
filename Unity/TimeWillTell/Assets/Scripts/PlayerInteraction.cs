@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     private Quaternion          _originalCameraRot;
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
+    private TVControl           _tv;
     private bool                _hasRequiredInteractive;
     private bool                _inCombinationMode;
     private bool                _isInspecting;
@@ -23,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
         _camera                 = GetComponentInChildren<Camera>().transform;
         _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
+        _tv                     = GameObject.Find("TV").GetComponent<TVControl>();
         _hasRequiredInteractive = false;
         _inCombinationMode      = false;
         _isInspecting           = false;
@@ -108,6 +110,9 @@ public class PlayerInteraction : MonoBehaviour
             else if (_currentInteractive.type == InteractiveType.COMBINATION)
                 Combination();
 
+            else if (_currentInteractive.type == InteractiveType.TV_REMOTE)
+                ControlTV();
+
             else if (_hasRequiredInteractive)
                 Interaction();
         }
@@ -171,6 +176,17 @@ public class PlayerInteraction : MonoBehaviour
         Interaction();
     }
 
+    private void ControlTV()
+    {
+        if (_tv.isPlaying != "OFF")
+            _tv.Play("OFF");
+
+        else
+            _tv.Play("VHS_1");
+        
+        Interaction();
+    }
+    
     private void Interaction()
     {
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
@@ -189,7 +205,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void QuitInspectMode()
     {
-        if(_isInspecting && Input.GetMouseButtonDown(1))
+        if (_isInspecting && 
+           (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Pause")))
             _ui.HideInspectMode();
     }
 }
