@@ -112,12 +112,14 @@ public class PlayerInteraction : MonoBehaviour
                 Interaction();
 
             else if (!_hasRequiredInteractive)
-                _currentInteractive.PlayLockedAudio();
+                _currentInteractive.PlayAudio(1);
         }
     }
 
     private void PickUp()
     {
+        _currentInteractive.PlayAudio(0);
+
         _currentInteractive.gameObject.SetActive(false);
 
         _directory.Add(_currentInteractive);

@@ -90,9 +90,12 @@ public class Interactive : MonoBehaviour
         }
     }
 
-    public void PlayLockedAudio()
+    public void PlayAudio(int clip)
     {
-        _audioSource.clip = _audioClips[1];
+        if (clip == 0)
+            _audioSource.clip = _audioClips[0];
+        else 
+            _audioSource.clip = _audioClips[1];
         _audioSource.Play(0);
     }
 }
