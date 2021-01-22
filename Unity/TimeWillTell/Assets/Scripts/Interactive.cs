@@ -44,17 +44,17 @@ public class Interactive : MonoBehaviour
 
     public void Interact()
     {
+        if (_animator != null)
+            _animator.SetTrigger("Interact");
+
+        if (_audioSource != null)
+        {
+            _audioSource.clip = _audioClips[0];
+            _audioSource.Play(0);
+        }
+        
         if (isActive)
         {
-            if (_animator != null)
-                _animator.SetTrigger("Interact");
-
-            if (_audioSource != null)
-            {
-                _audioSource.clip = _audioClips[0];
-                _audioSource.Play(0);
-            }
-
             if (type == InteractiveType.MULTIPLE || 
                 type == InteractiveType.TV_REMOTE)
             {
