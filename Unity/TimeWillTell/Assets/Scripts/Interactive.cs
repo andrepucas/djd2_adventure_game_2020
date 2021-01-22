@@ -58,12 +58,14 @@ public class Interactive : MonoBehaviour
             if (type == InteractiveType.MULTIPLE || 
                 type == InteractiveType.TV_REMOTE)
             {
-                _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
+                if (_interactionMsgs.Length > 1)
+                    _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
             }
 
             else
             {
-                isActive = false;
+                if (type != InteractiveType.CONTROLLED)
+                    isActive = false;
 
                 if(_colliderOffAfter) 
                     col.enabled = false;

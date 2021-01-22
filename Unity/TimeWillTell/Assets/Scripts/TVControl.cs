@@ -10,7 +10,7 @@ public class TVControl : MonoBehaviour
     [SerializeField] private VideoClip[] _videoClips;
     
     private VideoPlayer _videoPlayer;
-    
+
     void Start()
     {
         _videoPlayer        = GetComponent<VideoPlayer>();
