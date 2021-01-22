@@ -26,8 +26,8 @@ public class PlayerInteraction : MonoBehaviour
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
         _tv                     = GameObject.Find("TV").GetComponent<TVControl>();
         _hasRequiredInteractive = false;
-        _inCombinationMode      = false;
-        _isInspecting           = false;
+        _inCombinationMode = false;
+        _isInspecting = false;
 
         SafeLockControl.Solved += CombinationSolved;
     }
@@ -42,13 +42,13 @@ public class PlayerInteraction : MonoBehaviour
 
     private void LookForInteractive()
     {
-        if (Physics.Raycast(_camera.position, _camera.forward, 
+        if (Physics.Raycast(_camera.position, _camera.forward,
             out RaycastHit hit, INTERACT_RADIUS))
         {
             Interactive interactive = hit.transform.GetComponent<Interactive>();
             Debug.DrawRay(_camera.position, _camera.forward, Color.red, .2f);
 
-            if (interactive == null) 
+            if (interactive == null)
                 ClearInteractive();
 
             else if (interactive != _currentInteractive)
@@ -89,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private bool PlayerHasRequiredInteractive()
     {
-        if (_currentInteractive.requirements == null) 
+        if (_currentInteractive.requirements == null)
             return true;
 
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
@@ -115,11 +115,16 @@ public class PlayerInteraction : MonoBehaviour
 
             else if (_hasRequiredInteractive)
                 Interaction();
+
+            else if (!_hasRequiredInteractive)
+                _currentInteractive.PlayAudio(1);
         }
     }
 
     private void PickUp()
     {
+        _currentInteractive.PlayAudio(0);
+
         _currentInteractive.gameObject.SetActive(false);
 
         _directory.Add(_currentInteractive);
@@ -130,9 +135,9 @@ public class PlayerInteraction : MonoBehaviour
     private void Combination()
     {
         _inCombinationMode = true;
-        
+
         _comboInteractive = _currentInteractive;
-        
+
         _currentInteractive.GetComponent<BoxCollider>().enabled = false;
 
         MoveCameraTo(_currentInteractive.viewPoint);
@@ -156,8 +161,8 @@ public class PlayerInteraction : MonoBehaviour
                 _currentInteractive = _comboInteractive;
                 _currentInteractive.GetComponent<BoxCollider>().enabled = true;
 
-                _camera.localPosition   = _originalCameraPos;
-                _camera.localRotation   = _originalCameraRot;
+                _camera.localPosition = _originalCameraPos;
+                _camera.localRotation = _originalCameraRot;
                 _ui.HideCursor();
             }
         }
@@ -170,7 +175,7 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive = _comboInteractive;
         _currentInteractive.GetComponent<BoxCollider>().enabled = true;
 
-        _camera.localPosition   = _originalCameraPos;
+        _camera.localPosition = _originalCameraPos;
         _ui.HideCursor();
 
         Interaction();
