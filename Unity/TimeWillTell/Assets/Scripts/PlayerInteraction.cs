@@ -26,8 +26,8 @@ public class PlayerInteraction : MonoBehaviour
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
         _tv                     = GameObject.Find("TV").GetComponent<TVControl>();
         _hasRequiredInteractive = false;
-        _inCombinationMode = false;
-        _isInspecting = false;
+        _inCombinationMode      = false;
+        _isInspecting           = false;
 
         SafeLockControl.Solved += CombinationSolved;
     }
@@ -125,7 +125,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         _currentInteractive.PlayAudio(0);
 
-        _currentInteractive.gameObject.SetActive(false);
+        _currentInteractive.visibility.enabled = false;
+        _currentInteractive.col.enabled = false;
 
         _directory.Add(_currentInteractive);
 
@@ -138,9 +139,11 @@ public class PlayerInteraction : MonoBehaviour
 
         _comboInteractive = _currentInteractive;
 
-        _currentInteractive.GetComponent<BoxCollider>().enabled = false;
+        _currentInteractive.col.enabled = false;
 
         MoveCameraTo(_currentInteractive.viewPoint);
+
+        _ui.ShowHelpMsg("left click to exit combination mode");
         _ui.ShowCursor("");
     }
 
@@ -159,10 +162,12 @@ public class PlayerInteraction : MonoBehaviour
                 _inCombinationMode = false;
 
                 _currentInteractive = _comboInteractive;
-                _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+                _currentInteractive.col.enabled = true;
 
                 _camera.localPosition = _originalCameraPos;
                 _camera.localRotation = _originalCameraRot;
+
+                _ui.HideHelpMsg();
                 _ui.HideCursor();
             }
         }
@@ -173,12 +178,19 @@ public class PlayerInteraction : MonoBehaviour
         _inCombinationMode = false;
 
         _currentInteractive = _comboInteractive;
-        _currentInteractive.GetComponent<BoxCollider>().enabled = true;
+        _currentInteractive.col.enabled = true;
 
         _camera.localPosition = _originalCameraPos;
+
+        _ui.HideHelpMsg();
         _ui.HideCursor();
 
         Interaction();
+    }
+
+    public bool inCombination()
+    {
+        return _inCombinationMode;
     }
 
     private void ControlTV()
@@ -198,7 +210,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             Interactive currentRequirement = _currentInteractive.requirements[i];
 
-            currentRequirement.gameObject.SetActive(true);
+            currentRequirement.visibility.enabled = true;
+            currentRequirement.col.enabled = true;
             currentRequirement.Interact();
 
             _directory.Remove(_currentInteractive.requirements[i]);
@@ -210,8 +223,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void QuitInspectMode()
     {
-        if (_isInspecting && 
-           (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Pause")))
+        if (_isInspecting && Input.GetMouseButtonDown(1))
             _ui.HideInspectMode();
     }
 }

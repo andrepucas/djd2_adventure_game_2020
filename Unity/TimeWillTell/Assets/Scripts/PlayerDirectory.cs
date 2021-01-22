@@ -64,6 +64,8 @@ public class PlayerDirectory : MonoBehaviour
 
     public void Remove(Interactive item)
     {
+        _ui.HideInspectMode();
+
         if (item.pickableType == PickableType.INVENTORY)
         {
             _inventory.Remove(item);

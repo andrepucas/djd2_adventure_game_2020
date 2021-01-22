@@ -6,17 +6,19 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     
     private UserInterface       _ui;
+    private PlayerInteraction   _player;
     private bool                _isPaused;
 
     private void Start()
     {
         _ui             = UserInterface.instance;
+        _player         = GameObject.Find("Player").GetComponent<PlayerInteraction>();
         _isPaused       = false;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && _player.inCombination() == false)
             if (_isPaused)
                 Resume();
             else

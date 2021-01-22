@@ -10,6 +10,8 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private GameObject _journalPanel;
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private Text       _interactionText;
+    [SerializeField] private GameObject _helpPanel;
+    [SerializeField] private Text       _helpText;
     [SerializeField] private GameObject _inspectMode;
     [SerializeField] private Image      _inspectImage;
     [SerializeField] private Image      _crosshair;
@@ -37,7 +39,10 @@ public class UserInterface : MonoBehaviour
     {
         HideDirectory();
         HideInteractionMsg();
+        HideHelpMsg();
         HideInspectMode();
+
+        _crosshair.enabled = true;
 
         _inventorySlots = _inventoryPanel.GetComponentsInChildren<DirectorySlot>();
         _vhsSlots       = _vhsPanel.GetComponentsInChildren<DirectorySlot>();
@@ -72,6 +77,11 @@ public class UserInterface : MonoBehaviour
     public void ShowInteractionMsg(string message)
     {
         _interactionText.text = message;
+        ShowInteractionMsg();
+    }
+
+    public void ShowInteractionMsg()
+    {
         _interactionPanel.SetActive(true);
     }
 
@@ -80,9 +90,27 @@ public class UserInterface : MonoBehaviour
         _interactionPanel.SetActive(false);
     }
 
+    public void ShowHelpMsg(string message)
+    {
+        _helpText.text = message;
+        ShowHelpMsg();
+    }
+
+    public void ShowHelpMsg()
+    {
+        _helpPanel.SetActive(true);
+    }
+
+    public void HideHelpMsg()
+    {
+        _helpPanel.SetActive(false);
+    }
+
     public void ShowInspectMode(Sprite icon)
     {
-        _inspectImage.sprite    = icon;
+        ShowHelpMsg("left click to exit inspect mode");
+        
+        _inspectImage.sprite = icon;
 
         _inspectMode.SetActive(true);
     }
@@ -94,7 +122,9 @@ public class UserInterface : MonoBehaviour
 
     public void HideInspectMode()
     {
-        _inspectImage.sprite     = null;
+        HideHelpMsg();
+        
+        _inspectImage.sprite = null;
 
         _inspectMode.SetActive(false);
     }
