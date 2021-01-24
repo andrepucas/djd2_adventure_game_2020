@@ -143,7 +143,7 @@ public class PlayerInteraction : MonoBehaviour
 
         MoveCameraTo(_currentInteractive.viewPoint);
 
-        _ui.ShowHelpMsg("left click to exit combination mode");
+        _ui.ShowHelpMsg("right click to exit combination mode");
         _ui.ShowCursor("");
     }
 

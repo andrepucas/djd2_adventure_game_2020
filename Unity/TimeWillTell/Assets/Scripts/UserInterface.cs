@@ -108,7 +108,7 @@ public class UserInterface : MonoBehaviour
 
     public void ShowInspectMode(Sprite icon)
     {
-        ShowHelpMsg("left click to exit inspect mode");
+        ShowHelpMsg("right click to exit inspect mode");
         
         _inspectImage.sprite = icon;
 
