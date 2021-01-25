@@ -12,6 +12,8 @@ public enum InteractiveType
 
     CONTROLLED,
 
-    TV_REMOTE
+    TV_REMOTE,
+
+    TV
 }
 

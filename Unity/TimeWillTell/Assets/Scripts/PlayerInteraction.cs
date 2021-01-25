@@ -24,7 +24,6 @@ public class PlayerInteraction : MonoBehaviour
         _camera                 = GetComponentInChildren<Camera>().transform;
         _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
         _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
-        _tv                     = GameObject.Find("TV").GetComponent<TVControl>();
         _hasRequiredInteractive = false;
         _inCombinationMode      = false;
         _isInspecting           = false;
@@ -94,9 +93,17 @@ public class PlayerInteraction : MonoBehaviour
 
         for (int i = 0; i < _currentInteractive.requirements.Length; ++i)
         {
-            if (!_directory.Contains(_currentInteractive.requirements[i]))
-                return false;
+            if (_currentInteractive.type == InteractiveType.TV)
+                if (!_directory.HasVHS(_currentInteractive.requirements[i]))
+                    return false;
+                else 
+                    return true;
+
+            else
+                if (!_directory.HasItem(_currentInteractive.requirements[i]))
+                    return false;
         }
+
         return true;
     }
 
@@ -111,12 +118,16 @@ public class PlayerInteraction : MonoBehaviour
                 Combination();
 
             else if (_currentInteractive.type == InteractiveType.TV_REMOTE)
-                ControlTV();
+                TVOnOff();
+
+            else if (_currentInteractive.type == InteractiveType.TV && 
+                     _hasRequiredInteractive)
+                TVPlayNext();
 
             else if (_hasRequiredInteractive)
                 Interaction();
 
-            else if (!_hasRequiredInteractive)
+            else if (!_hasRequiredInteractive && _currentInteractive.HasAudioClip(1))
                 _currentInteractive.PlayAudio(1);
         }
     }
@@ -193,15 +204,42 @@ public class PlayerInteraction : MonoBehaviour
         return _inCombinationMode;
     }
 
-    private void ControlTV()
+    private void TVOnOff()
     {
-        if (_tv.isPlaying != "OFF")
-            _tv.Play("OFF");
+        _tv = _currentInteractive.GetComponent<TVControl>();
+        
+        if (_tv.IsOn()) 
+            _tv.Off();
 
-        else
-            _tv.Play("VHS_1");
+        else _tv.On();
         
         Interaction();
+    }
+
+    private void TVPlayNext()
+    {
+        if (_currentInteractive.gameObject.name == "TVPresent")
+        {
+            _tv = GameObject.Find("TVRemotePresent").GetComponent<TVControl>();
+
+            // Doesnt have both VHS.
+            if (!_directory.VHSCount(2))
+                // Can only replay the first one.
+                _tv.PlayTape("VHS_0");
+
+            else
+                // Can iterate VHS tapes.
+                _tv.PlayNext();
+        }
+
+        // Uncomment lines below and re-toggle Interactive component on "TVPast"
+        // to control commercials.
+        
+        // else if (_currentInteractive.gameObject.name == "TVPast")
+        // {
+        //     _tv = GameObject.Find("TVRemotePast").GetComponent<TVControl>();
+        //     _tv.PlayNext();
+        // }
     }
     
     private void Interaction()
@@ -210,8 +248,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Interactive currentRequirement = _currentInteractive.requirements[i];
 
-            currentRequirement.visibility.enabled = true;
-            currentRequirement.col.enabled = true;
+            currentRequirement.transform.position = transform.position;
             currentRequirement.Interact();
 
             _directory.Remove(_currentInteractive.requirements[i]);

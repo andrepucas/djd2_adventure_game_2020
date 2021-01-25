@@ -86,8 +86,22 @@ public class PlayerDirectory : MonoBehaviour
         }
     }
 
-    public bool Contains(Interactive item)
+    public bool HasItem(Interactive item)
     {
         return _inventory.Contains(item);
+    }
+
+    public bool HasVHS(Interactive item)
+    {
+        return _vhsTapes.Contains(item);
+    }
+
+    public bool VHSCount(int i)
+    {
+        if (_vhsTapes.Count == i)
+            return true;
+
+        else
+            return false;
     }
 }
