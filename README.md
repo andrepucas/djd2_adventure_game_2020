@@ -29,7 +29,7 @@ __Can't depend on:__
 
 * Students: [Afonso Lage (a21901381)], [André Santos (a21901767)], [Miguel Feliciano (a22002782)]
 
-* Subject: Desenvolvimento de Jogos Digitais 2
+* Subject: Digital Game Development II
 
 * Second year Videogames students @ [Universidade Lusófona de Humanidades e Tecnologias][ULHT]
 
