@@ -109,7 +109,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void LookForAction()
     {
-        if (Input.GetMouseButtonDown(0) && _currentInteractive != null)
+        if (Input.GetMouseButtonDown(0) && _currentInteractive != null &&
+            Time.timeScale == 1)
         {
             if (_currentInteractive.type == InteractiveType.PICKABLE)
                 PickUp();
@@ -136,8 +137,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         _currentInteractive.PlayAudio(0);
 
-        _currentInteractive.visibility.enabled = false;
-        _currentInteractive.col.enabled = false;
+        _currentInteractive.gameObject.SetActive(false);
 
         _directory.Add(_currentInteractive);
 
@@ -248,7 +248,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Interactive currentRequirement = _currentInteractive.requirements[i];
 
-            currentRequirement.transform.position = transform.position;
+            currentRequirement.gameObject.SetActive(true);
             currentRequirement.Interact();
 
             _directory.Remove(_currentInteractive.requirements[i]);
