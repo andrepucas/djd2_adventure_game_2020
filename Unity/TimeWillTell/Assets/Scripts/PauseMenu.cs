@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
     
     private UserInterface       _ui;
     private PlayerInteraction   _player;
-    private bool                _isPaused;
+    public  bool                _isPaused;
 
     private void Start()
     {

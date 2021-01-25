@@ -55,7 +55,7 @@ public class Interactive : MonoBehaviour
         
         if (isActive)
         {
-            if (type == InteractiveType.MULTIPLE || 
+            if (type == InteractiveType.MULTIPLE ||
                 type == InteractiveType.TV_REMOTE)
             {
                 if (_interactionMsgs.Length > 1)
@@ -83,6 +83,9 @@ public class Interactive : MonoBehaviour
             {
                 if(!_activationChain[i].isActive)
                     _activationChain[i].isActive = true;
+                
+                else 
+                    _activationChain[i].isActive = false;
             }
         }
     }
@@ -108,5 +111,13 @@ public class Interactive : MonoBehaviour
                 _audioSource.clip = _audioClips[1];
             _audioSource.Play(0);
         }
+    }
+
+    public bool HasAudioClip(int clip)
+    {
+        if (clip < _audioClips.Length)
+            return true;
+        else 
+            return false;
     }
 }
