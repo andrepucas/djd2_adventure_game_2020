@@ -1142,7 +1142,7 @@ GameObject:
   - component: {fileID: 7182678632900567679}
   - component: {fileID: 4921017537426314933}
   m_Layer: 0
-  m_Name: wheelLock 1
+  m_Name: wheelLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

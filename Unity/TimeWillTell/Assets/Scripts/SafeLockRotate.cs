@@ -6,13 +6,13 @@ public class SafeLockRotate : MonoBehaviour
 {
     public static event Action<string, int> Rotated = delegate {};
 
-    private bool    _coroutineAllowed;
-    private int     _wheelLockNumber;
+    private bool     _coroutineAllowed;
+    private int      _wheelLockNumber;
 
     private void Start()
     {
-        _coroutineAllowed    = true;
-        _wheelLockNumber     = 0;
+        _coroutineAllowed   = true;
+        _wheelLockNumber    = 0;
     }
 
     private void OnMouseDown()
@@ -27,10 +27,10 @@ public class SafeLockRotate : MonoBehaviour
     {
         _coroutineAllowed = false;
 
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < 12; i++)
         {
-            transform.Rotate(-36f, 0f, 0f, Space.World);
-            yield return new WaitForSeconds(0.01f);
+            transform.Rotate(-3f, 0f, 0f, Space.World);
+            yield return new WaitForSeconds(0.005f);
         }
 
         _coroutineAllowed = true;

@@ -125,11 +125,12 @@ public class PlayerInteraction : MonoBehaviour
                      _hasRequiredInteractive)
                 TVPlayNext();
 
-            else if (_hasRequiredInteractive)
-                Interaction();
-
             else if (!_hasRequiredInteractive && _currentInteractive.HasAudioClip(1))
                 _currentInteractive.PlayAudio(1);
+
+            else if (_hasRequiredInteractive && 
+                _currentInteractive.type != InteractiveType.BOOK)
+                Interaction();
         }
     }
 

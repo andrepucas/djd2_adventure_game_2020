@@ -53,7 +53,7 @@ public class Interactive : MonoBehaviour
         
         if (isActive)
         {
-            if (type == InteractiveType.MULTIPLE ||
+            if (type == InteractiveType.MULTIPLE || type == InteractiveType.BOOK||
                 type == InteractiveType.TV_REMOTE)
             {
                 if (_interactionMsgs.Length > 1)

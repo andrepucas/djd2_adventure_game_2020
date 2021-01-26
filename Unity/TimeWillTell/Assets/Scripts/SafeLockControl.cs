@@ -50,7 +50,7 @@ public class SafeLockControl : MonoBehaviour
             _playerCombo[4] == _correctCombo[4] &&
             _playerCombo[5] == _correctCombo[5])
         {
-            Debug.Log("Opened!");
+            Debug.Log("Safe Opened");
             Solved();
         }
     }
