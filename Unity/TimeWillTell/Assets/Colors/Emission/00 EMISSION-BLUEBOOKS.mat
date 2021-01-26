@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat Secret Button Red
+  m_Name: 00 EMISSION-BLUEBOOKS
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -77,7 +77,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7921569, g: 0.1882353, b: 0.21960784, a: 1}
-    - _EmissionColor: {r: 0.9865292, g: 0.16216919, b: 0.16216919, a: 1}
+    - _Color: {r: 0.21960784, g: 0.28235295, b: 0.47058824, a: 1}
+    - _EmissionColor: {r: 0.21226418, g: 0.35548893, b: 1, a: 1}
     - _SpecColor: {r: 0.07352942, g: 0.07352942, b: 0.07352942, a: 1}
   m_BuildTextureStacks: []
