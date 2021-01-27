@@ -9,8 +9,7 @@ public class StatueControl : MonoBehaviour
 
     void Start()
     {
-        _statuePositions = new int[] {1,1,1,1};
-        
+        _statuePositions  = new int[] {1,1,1,1};
         _correctPositions = new int[] {2,4,3,3};
 
         StatueBook.Pushed += ComparePositions;
