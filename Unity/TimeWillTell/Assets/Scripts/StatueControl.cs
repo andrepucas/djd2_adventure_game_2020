@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StatueControl : MonoBehaviour
 {
+    [SerializeField] private Animator _secretDoor;
+    
     [SerializeField] private int[] _statuePositions;
     [SerializeField] private int[] _correctPositions;
 
@@ -37,7 +39,13 @@ public class StatueControl : MonoBehaviour
             _statuePositions[1] == _correctPositions[1] &&
             _statuePositions[2] == _correctPositions[2] &&
             _statuePositions[3] == _correctPositions[3])
+        {
+            Debug.Log("Statues Match.");
 
-        Debug.Log("Statues Match.");
+            _secretDoor.SetBool("Opened", true);
+
+        }
+
+        
     }
 }

@@ -30,7 +30,7 @@ public class StatueBook : MonoBehaviour
         _coroutineAllowed = false;
 
         _book.Interact();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.12f);
 
         _coroutineAllowed = true;
 
