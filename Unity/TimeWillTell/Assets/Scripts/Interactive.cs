@@ -61,6 +61,8 @@ public class Interactive : MonoBehaviour
             {
                 if (_interactionMsgs.Length > 1)
                     _currentMsgID = (_currentMsgID + 1) % _interactionMsgs.Length;
+                //if (_audioClips.Length > 1)
+                    //_audioSource.clip = (_audioClips + 1)
             }
 
             else

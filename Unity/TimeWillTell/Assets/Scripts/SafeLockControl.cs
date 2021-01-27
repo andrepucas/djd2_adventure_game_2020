@@ -8,6 +8,7 @@ public class SafeLockControl : MonoBehaviour
     
     [SerializeField] private int[] _correctCombo;
 
+    private AudioSource _audioSource;
     private Interactive _interactive;
     private int[]       _playerCombo;
 
@@ -19,6 +20,7 @@ public class SafeLockControl : MonoBehaviour
         _correctCombo   = new int[ ] {9,6,2,5,1,7};
 
         SafeLockRotate.Rotated += CompareCombos;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void CompareCombos(string wheelLock, int number)
@@ -53,6 +55,7 @@ public class SafeLockControl : MonoBehaviour
             _playerCombo[5] == _correctCombo[5])
         {
             Debug.Log("Safe Opened");
+            _audioSource.Play(0);
             Solved();
         }
     }
