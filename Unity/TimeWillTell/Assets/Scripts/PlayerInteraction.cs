@@ -9,7 +9,6 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerDirectory     _directory;
     private Transform           _camera;
     private Vector3             _originalCameraPos;
-    private Quaternion          _originalCameraRot;
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
     private TVControl           _tv;
@@ -23,12 +22,12 @@ public class PlayerInteraction : MonoBehaviour
         _directory              = PlayerDirectory.instance;
         _camera                 = GetComponentInChildren<Camera>().transform;
         _originalCameraPos      = new Vector3(0f, 0.7f, 0f);
-        _originalCameraRot      = new Quaternion(0f, 0f, 0f, 0f);
         _hasRequiredInteractive = false;
         _inCombinationMode      = false;
         _isInspecting           = false;
 
-        SafeLockControl.Solved += CombinationSolved;
+        SafeLockControl.Solved  += CombinationSolved;
+        ClockControl.Solved     += CombinationSolved;
     }
 
     private void Update()
@@ -177,7 +176,7 @@ public class PlayerInteraction : MonoBehaviour
                 _currentInteractive.col.enabled = true;
 
                 _camera.localPosition = _originalCameraPos;
-                _camera.localRotation = _originalCameraRot;
+                _camera.LookAt(_currentInteractive.transform);
 
                 _ui.HideHelpMsg();
                 _ui.HideCursor();
@@ -190,9 +189,9 @@ public class PlayerInteraction : MonoBehaviour
         _inCombinationMode = false;
 
         _currentInteractive = _comboInteractive;
-        _currentInteractive.col.enabled = true;
 
         _camera.localPosition = _originalCameraPos;
+        _camera.LookAt(_currentInteractive.transform);
 
         _ui.HideHelpMsg();
         _ui.HideCursor();
