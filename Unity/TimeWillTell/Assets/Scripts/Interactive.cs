@@ -28,6 +28,9 @@ public class Interactive : MonoBehaviour
         _animator       = GetComponent<Animator>();
         _audioSource    = GetComponent<AudioSource>();
         _currentMsgID   = 0;
+
+        if (!isActive && col != null)
+            col.enabled = false;
     }
 
     public string GetInteractionMsg()
@@ -80,10 +83,21 @@ public class Interactive : MonoBehaviour
             for (int i = 0; i < _activationChain.Length; i++)
             {
                 if(!_activationChain[i].isActive)
+                {
                     _activationChain[i].isActive = true;
+                    
+                    if (col != null) 
+                        _activationChain[i].col.enabled = true;
+                }
                 
                 else 
+                {
                     _activationChain[i].isActive = false;
+                    
+                    if (col != null) 
+                        _activationChain[i].col.enabled = false;
+                }
+                    
             }
         }
     }
