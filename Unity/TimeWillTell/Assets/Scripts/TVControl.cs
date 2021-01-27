@@ -10,12 +10,14 @@ public class TVControl : MonoBehaviour
     [SerializeField] private bool               _loopQueue, _startOff;
     
     private VideoPlayer _videoPlayer;
+    private AudioSource _tvAudio;
     private bool        _isOn, _deletedNoSignal, _gamePaused;
     private int         _queuePos;
 
     void Start()
     {
         _videoPlayer = _tv.GetComponent<VideoPlayer>();
+        _tvAudio     = _tv.GetComponent<AudioSource>();
         _queuePos = 1;
 
         if (_startOff)
@@ -80,6 +82,9 @@ public class TVControl : MonoBehaviour
         
         if (Time.timeScale == 0f)
         {
+            // Fixes small sound glitches coming from the tv when paused.
+            _tvAudio.enabled = false; 
+
             _videoPlayer.Pause();
             _gamePaused = true;
         }
@@ -87,6 +92,7 @@ public class TVControl : MonoBehaviour
         if (Time.timeScale == 1f && _gamePaused)
         {
             _videoPlayer.Play();
+            _tvAudio.enabled = true;
             _gamePaused = false;
         }    
     }

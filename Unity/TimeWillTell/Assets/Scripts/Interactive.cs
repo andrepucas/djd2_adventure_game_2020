@@ -8,7 +8,6 @@ public class Interactive : MonoBehaviour
     public PickableType     pickableType;
     public GameObject       viewPoint;
     public Sprite           icon;
-    public MeshRenderer     visibility;
     public Collider         col;
     public Interactive[]    requirements;
 
@@ -25,7 +24,6 @@ public class Interactive : MonoBehaviour
 
     private void Start()
     {
-        visibility      = GetComponent<MeshRenderer>();
         col             = GetComponent<Collider>();
         _animator       = GetComponent<Animator>();
         _audioSource    = GetComponent<AudioSource>();
@@ -55,7 +53,7 @@ public class Interactive : MonoBehaviour
         
         if (isActive)
         {
-            if (type == InteractiveType.MULTIPLE ||
+            if (type == InteractiveType.MULTIPLE || type == InteractiveType.BOOK||
                 type == InteractiveType.TV_REMOTE)
             {
                 if (_interactionMsgs.Length > 1)
@@ -109,7 +107,8 @@ public class Interactive : MonoBehaviour
                 _audioSource.clip = _audioClips[0];
             else 
                 _audioSource.clip = _audioClips[1];
-            _audioSource.Play(0);
+            
+            AudioSource.PlayClipAtPoint(_audioSource.clip, transform.position);
         }
     }
 

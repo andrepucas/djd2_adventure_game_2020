@@ -1381,7 +1381,7 @@ Transform:
   - {fileID: 1049368285}
   - {fileID: 1270235090}
   m_Father: {fileID: 1109397165}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &236703149
 MonoBehaviour:
@@ -1421,12 +1421,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45fac1e88e1b894a89a1e7f3787503d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaying: 
+  _tv: {fileID: 0}
   _videoClips:
   - {fileID: 32900000, guid: 51473784eba870a40b633ae543da94b2, type: 3}
   - {fileID: 32900000, guid: 02bb4d0626d2d3a4ebcd65fd4c11e336, type: 3}
   - {fileID: 32900000, guid: 51305a7e1908b8645b073bf612063399, type: 3}
   - {fileID: 32900000, guid: cafe2f273cd0fc542b9389bd87978161, type: 3}
+  _loopQueue: 0
+  _startOff: 0
 --- !u!82 &236703151
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2969,11 +2971,6 @@ PrefabInstance:
 --- !u!1 &468703403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 374302841240948208, guid: efac7d628bce39046aedb7ec612594b2, type: 3}
-  m_PrefabInstance: {fileID: 1911655734}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &468703404 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 374302841240948211, guid: efac7d628bce39046aedb7ec612594b2, type: 3}
   m_PrefabInstance: {fileID: 1911655734}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &468703405
@@ -6000,9 +5997,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 468703404}
   - {fileID: 236703148}
   - {fileID: 566410791}
+  - {fileID: 1911655735}
   - {fileID: 9926532}
   - {fileID: 2035866561}
   m_Father: {fileID: 1423278207}
@@ -10643,6 +10640,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 374302841240948210, guid: efac7d628bce39046aedb7ec612594b2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: efac7d628bce39046aedb7ec612594b2, type: 3}
+--- !u!4 &1911655735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1911655734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1948779429
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public enum InteractiveType
 
     TV_REMOTE,
 
-    TV
+    TV,
+
+    BOOK
 }
 

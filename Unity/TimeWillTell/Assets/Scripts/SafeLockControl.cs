@@ -13,8 +13,10 @@ public class SafeLockControl : MonoBehaviour
 
     private void Start()
     {
-        _interactive    = GetComponent<Interactive>();
+        _interactive = GetComponent<Interactive>();
+
         _playerCombo    = new int[6];
+        _correctCombo   = new int[ ] {9,6,2,5,1,7};
 
         SafeLockRotate.Rotated += CompareCombos;
     }
@@ -50,13 +52,8 @@ public class SafeLockControl : MonoBehaviour
             _playerCombo[4] == _correctCombo[4] &&
             _playerCombo[5] == _correctCombo[5])
         {
-            Debug.Log("Opened!");
+            Debug.Log("Safe Opened");
             Solved();
         }
-    }
-
-    private void OnDestroy()
-    {
-        SafeLockRotate.Rotated -= CompareCombos;
     }
 }

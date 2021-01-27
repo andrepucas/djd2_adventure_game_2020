@@ -79,12 +79,13 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAcceleration()
     {
         _acceleration.z = Input.GetAxis("Forward");
+        _acceleration.x = Input.GetAxis("Strafe") * STRAFE_ACCELERATION;
+
         _acceleration.z *= (_acceleration.z >=0) ? 
             FORWARD_ACCELERATION : BACKWARD_ACCELERATION;
 
-        _acceleration.x = Input.GetAxis("Strafe") * STRAFE_ACCELERATION;
-
         _acceleration.y = -GRAVITY_ACCELERATION;
+
     }
 
     private void UpdateVelocity()
