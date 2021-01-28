@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerDirectory     _directory;
     private Transform           _camera;
     private Vector3             _originalCameraPos;
+    private Quaternion          _originalCameraRot;
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
     private TVControl           _tv;
@@ -46,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour
             Interactive interactive = hit.transform.GetComponent<Interactive>();
             Debug.DrawRay(_camera.position, _camera.forward, Color.red, .2f);
 
-            if (interactive == null)
+            if (interactive == null || !interactive.isActive)
                 ClearInteractive();
 
             else if (interactive != _currentInteractive)
@@ -82,7 +83,7 @@ public class PlayerInteraction : MonoBehaviour
         // Fixes bug where player would be able to interact with a non active 
         // interactive if he was looking at an active one right before 
         // using memory travel. (Present/Past Doors)
-        else ClearInteractive();
+        // else ClearInteractive();
     }
 
     private bool PlayerHasRequiredInteractive()
@@ -154,12 +155,15 @@ public class PlayerInteraction : MonoBehaviour
 
         MoveCameraTo(_currentInteractive.viewPoint);
 
+        _ui.HideInspectMode();
         _ui.ShowHelpMsg("right click to exit combination mode");
         _ui.ShowCursor("");
     }
 
     private void MoveCameraTo(GameObject viewPoint)
     {
+        _originalCameraRot = _camera.localRotation;
+        
         _camera.position = viewPoint.transform.position;
         _camera.rotation = viewPoint.transform.rotation;
     }
@@ -176,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
                 _currentInteractive.col.enabled = true;
 
                 _camera.localPosition = _originalCameraPos;
-                _camera.LookAt(_currentInteractive.transform);
+                _camera.localRotation = _originalCameraRot;
 
                 _ui.HideHelpMsg();
                 _ui.HideCursor();
@@ -191,7 +195,7 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive = _comboInteractive;
 
         _camera.localPosition = _originalCameraPos;
-        _camera.LookAt(_currentInteractive.transform);
+        _camera.localRotation = _originalCameraRot;
 
         _ui.HideHelpMsg();
         _ui.HideCursor();
@@ -218,6 +222,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TVPlayNext()
     {
+        _ui.HideInspectMode();
+        
         if (_currentInteractive.gameObject.name == "TVPresent")
         {
             _tv = GameObject.Find("TVRemotePresent").GetComponent<TVControl>();

@@ -15,12 +15,12 @@ public class SafeLockControl : MonoBehaviour
     private void Start()
     {
         _interactive = GetComponent<Interactive>();
+        _audioSource = GetComponent<AudioSource>();
 
-        _playerCombo    = new int[6];
-        _correctCombo   = new int[ ] {9,6,2,5,1,7};
+        _playerCombo  = new int[6];
+        _correctCombo = new int[ ] {9,6,2,5,1,7};
 
         SafeLockRotate.Rotated += CompareCombos;
-        _audioSource = GetComponent<AudioSource>();
     }
 
     private void CompareCombos(string wheelLock, int number)
