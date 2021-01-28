@@ -105,4 +105,13 @@ public class PlayerMovement : MonoBehaviour
 
         _controller.Move(transform.TransformVector(motion));
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.name == "SecretRoomEmpty")
+            _ui.ShowHelpMsg("You have no memory of this place.");
+
+        if (col.gameObject.name == "SecretRoom")
+            _ui.HideHelpMsg();
+    }
 }
