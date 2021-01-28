@@ -6,13 +6,15 @@ public class ClockUpdate : MonoBehaviour
 {
     public static event Action<string, int> NextDigit = delegate {};
 
-    private bool     _coroutineAllowed;
+    private bool        _coroutineAllowed;
+    private AudioSource _audioSource;
 
     [SerializeField] private int _wheelTimeNumber;
 
     private void Start()
     {
         _coroutineAllowed   = true;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnMouseDown()
@@ -32,7 +34,7 @@ public class ClockUpdate : MonoBehaviour
             transform.Rotate(0f, 18f, 0f, Space.Self);
             yield return new WaitForSeconds(0.05f);
         }
-
+        _audioSource.Play(0);
         _coroutineAllowed = true;
 
         _wheelTimeNumber += 1;
