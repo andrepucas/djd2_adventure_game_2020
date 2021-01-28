@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class StatueControl : MonoBehaviour
 {
+    public static event Action Solved;
+    
     [SerializeField] private Animator _secretDoor;
     
     [SerializeField] private int[] _statuePositions;
@@ -21,16 +23,16 @@ public class StatueControl : MonoBehaviour
     {
         switch (book)
         {
-            case "BookSecretButton_1":
+            case "BookButton_1":
                 _statuePositions[0] = newPosition;
                 break;
-            case "BookSecretButton_2":
+            case "BookButton_2":
                 _statuePositions[1] = newPosition;
                 break;
-            case "BookSecretButton_3":
+            case "BookButton_3":
                 _statuePositions[2] = newPosition;
                 break;
-            case "BookSecretButton_4":
+            case "BookButton_4":
                 _statuePositions[3] = newPosition;
                 break;
         }
@@ -41,6 +43,8 @@ public class StatueControl : MonoBehaviour
             _statuePositions[3] == _correctPositions[3])
         {
             Debug.Log("Statues Match.");
+
+            Solved();
 
             _secretDoor.SetBool("Opened", true);
 

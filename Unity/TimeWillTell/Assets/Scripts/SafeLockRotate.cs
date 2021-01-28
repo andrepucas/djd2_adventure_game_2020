@@ -14,12 +14,13 @@ public class SafeLockRotate : MonoBehaviour
 
     private void Start()
     {
-        _coroutineAllowed   = true;
-        _wheelLockNumber    = 0;
+        _audioSource = GetComponent<AudioSource>();
+        _sprites     = GetComponentsInChildren<SpriteRenderer>();
+        
+        _coroutineAllowed = true;
+        _wheelLockNumber  = 0;
 
         SafeLockControl.Solved += SolvedColor;
-        _audioSource = GetComponent<AudioSource>();
-        _sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void OnMouseDown()
@@ -53,7 +54,6 @@ public class SafeLockRotate : MonoBehaviour
 
     private void SolvedColor()
     {
-        
         foreach (SpriteRenderer sprite in _sprites)
         {
             sprite.color = Color.green;
