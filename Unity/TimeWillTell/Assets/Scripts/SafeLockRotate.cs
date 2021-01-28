@@ -6,7 +6,8 @@ public class SafeLockRotate : MonoBehaviour
 {
     public static event Action<string, int> Rotated = delegate {};
 
-    private SpriteRenderer[] _sprites;
+    private SpriteRenderer[]    _sprites;
+    private AudioSource         _audioSource;
     
     private bool     _coroutineAllowed;
     private int      _wheelLockNumber;
@@ -17,6 +18,8 @@ public class SafeLockRotate : MonoBehaviour
         _wheelLockNumber    = 0;
 
         SafeLockControl.Solved += SolvedColor;
+        _audioSource = GetComponent<AudioSource>();
+        _sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void OnMouseDown()
@@ -34,9 +37,10 @@ public class SafeLockRotate : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             transform.Rotate(-6f, 0f, 0f, Space.World);
+            
             yield return new WaitForSeconds(0.005f);
         }
-
+        _audioSource.Play(0);
         _coroutineAllowed = true;
 
         _wheelLockNumber += 1;
@@ -49,8 +53,7 @@ public class SafeLockRotate : MonoBehaviour
 
     private void SolvedColor()
     {
-        _sprites = GetComponentsInChildren<SpriteRenderer>();
-
+        
         foreach (SpriteRenderer sprite in _sprites)
         {
             sprite.color = Color.green;
