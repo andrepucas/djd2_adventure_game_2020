@@ -29,7 +29,7 @@ public class Interactive : MonoBehaviour
         _audioSource    = GetComponent<AudioSource>();
         _currentMsgID   = 0;
 
-        if (!isActive && col != null)
+        if (!isActive && col != null && type != InteractiveType.CONTROLLED)
             col.enabled = false;
     }
 
