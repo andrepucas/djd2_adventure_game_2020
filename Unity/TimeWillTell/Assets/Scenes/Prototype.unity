@@ -13170,7 +13170,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1964372444}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: ToOptions
+        m_MethodName: ToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38647,6 +38647,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1535077418, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
       value: DeskLampFirst
@@ -45304,6 +45308,10 @@ PrefabInstance:
     - target: {fileID: 1535077418, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Intensity
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535077418, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1377084925307304, guid: 483010dfc760f4a3fb7e7ac0ebec5dfb, type: 3}
       propertyPath: m_Name
