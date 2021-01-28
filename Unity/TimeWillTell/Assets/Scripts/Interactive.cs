@@ -51,7 +51,7 @@ public class Interactive : MonoBehaviour
         if (_audioSource != null)
         {
             _audioSource.clip = _audioClips[0];
-            _audioSource.Play(0);
+            _audioSource.Play();
         }
         
         if (isActive)
@@ -124,7 +124,9 @@ public class Interactive : MonoBehaviour
             else 
                 _audioSource.clip = _audioClips[1];
             
+            //_audioSource.Play(0);
             AudioSource.PlayClipAtPoint(_audioSource.clip, transform.position);
+            //_audioSource.PlayOneShot(_audioSource.clip, 1f);
         }
     }
 
