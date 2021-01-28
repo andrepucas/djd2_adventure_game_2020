@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuUI;
-    
     private UserInterface       _ui;
     private PlayerInteraction   _player;
     public  bool                _isPaused;
@@ -20,38 +18,43 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause") && _player.inCombination() == false)
             if (_isPaused)
-                Resume();
+                Continue();
             else
-                Pause ();
+                Pause();
     }
 
     private void Pause ()
     {
         _ui.ShowCursor("free");
+        _ui.ShowPauseMenu();
 
-        pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         _isPaused = true;
     }
 
-    void Resume ()
+    public void Continue ()
     {
         _ui.HideCursor();
+        _ui.HidePauseMenu();
 
-        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         _isPaused = false;
     }
 
-    void LoadMenu()
+    public void ToOptions()
+    {
+        _ui.HidePauseMenu();
+    }
+
+    public void ToMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
-    void QuitGame ()
+    public void Replay ()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
-
 }
