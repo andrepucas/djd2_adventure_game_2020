@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,13 +14,12 @@ public class SafeLockRotate : MonoBehaviour
 
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
-        _sprites     = GetComponentsInChildren<SpriteRenderer>();
-        
-        _coroutineAllowed = true;
-        _wheelLockNumber  = 0;
+        _coroutineAllowed   = true;
+        _wheelLockNumber    = 0;
 
         SafeLockControl.Solved += SolvedColor;
+        _audioSource = GetComponent<AudioSource>();
+        _sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void OnMouseDown()

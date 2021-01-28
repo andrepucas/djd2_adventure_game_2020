@@ -51,7 +51,7 @@ public class Interactive : MonoBehaviour
         if (_audioSource != null)
         {
             _audioSource.clip = _audioClips[0];
-            _audioSource.Play();
+            if (_audioSource.enabled) _audioSource.Play();
         }
         
         if (isActive)
@@ -64,7 +64,6 @@ public class Interactive : MonoBehaviour
                 //if (_audioClips.Length > 1)
                     //_audioSource.clip = (_audioClips + 1)
             }
-
             else
             {
                 if (type != InteractiveType.CONTROLLED)
