@@ -13,9 +13,9 @@ public class PlayerInteraction : MonoBehaviour
     private Interactive         _currentInteractive;
     private Interactive         _comboInteractive;
     private TVControl           _tv;
-    private bool                _hasRequiredInteractive;
-    private bool                _inCombinationMode;
-    private bool                _isInspecting;
+    
+    private bool _hasRequiredInteractive, _inCombinationMode, _isInspecting, 
+                 _firstInteractable;
 
     private void Start()
     {
@@ -26,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         _hasRequiredInteractive = false;
         _inCombinationMode      = false;
         _isInspecting           = false;
+        _firstInteractable      = true;
 
         SafeLockControl.Solved  += CombinationSolved;
         ClockControl.Solved     += CombinationSolved;
@@ -33,6 +34,12 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        if (_firstInteractable && Input.GetButtonDown("Memory Travel"))
+        {
+            _ui.HideHelpMsg();
+            _firstInteractable = false;
+        }
+
         LookForInteractive();
         LookForAction();
         QuitCombination();
@@ -68,6 +75,9 @@ public class PlayerInteraction : MonoBehaviour
         if (interactive.isActive)
         {
             _currentInteractive = interactive;
+
+            if (_firstInteractable)
+                _ui.ShowHelpMsg("Press <space> to access your memories and look for clues.");
 
             if (PlayerHasRequiredInteractive())
             {
