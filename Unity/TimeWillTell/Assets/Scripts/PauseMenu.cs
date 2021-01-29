@@ -36,14 +36,22 @@ public class PauseMenu : MonoBehaviour
     {
         _ui.HideCursor();
         _ui.HidePauseMenu();
+        _ui.HideSettingsMenu();
 
         Time.timeScale = 1f;
         _isPaused = false;
     }
 
-    public void ToOptions()
+    public void ToSettings()
     {
         _ui.HidePauseMenu();
+        _ui.ShowSettingsMenu();
+    }
+
+    public void Replay ()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
 
     public void ToMenu()
@@ -52,9 +60,8 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Replay ()
+    public void ToDesktop()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        Application.Quit();
     }
 }
