@@ -7,13 +7,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]  private GameObject _settings;
     [SerializeField]  private GameObject _controls;
     [SerializeField]  private GameObject _credits;
+    [SerializeField]  private AudioSource _audioSource;
 
-    private AudioSource _audioSource;
-
-    private void Start()
-    {
-        _audioSource = GetComponentInParent<AudioSource>();
-    } 
 
     public void Play()
     {
