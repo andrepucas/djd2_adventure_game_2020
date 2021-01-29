@@ -7,6 +7,7 @@ public class PlayerMemoryTravel : MonoBehaviour
     
     private Transform           _playerTransf, _cameraTransf;
     private CharacterController _controller;
+    private AudioSource         _audioSource;
     private Vector3             _distance, _height;
     private bool                _inMemoryTravel;
     private bool                _memTravelReady;
