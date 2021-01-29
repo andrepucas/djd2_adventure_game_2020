@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerMemoryTravel : MonoBehaviour
 {
+    [SerializeField] private Subtitles _subs;
+    
     private Transform           _playerTransf, _cameraTransf;
     private CharacterController _controller;
     private AudioSource         _audioSource;

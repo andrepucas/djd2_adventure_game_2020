@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private const float INTRO_RIGHT_PEEK        = 340f;
 
     private UserInterface       _ui;
+    private Subtitles           _subtitles;
     private CharacterController _controller;
     private Transform           _cameraTransform;
     private Vector3             _acceleration;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _ui                 = UserInterface.instance;
+        _subtitles          = _ui.GetComponent<Subtitles>();
         _controller         = GetComponent<CharacterController>();
         _cameraTransform    = GetComponentInChildren<Camera>().transform;
         _acceleration       = Vector3.zero;
@@ -113,5 +115,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (col.gameObject.name == "SecretRoom")
             _ui.HideHelpMsg();
+
+        if (col.gameObject.name == "Range")
+            _subtitles.InRange(true);
+        
+        if (col.gameObject.name == "PastFilter")
+            _subtitles.InRange(false);
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.name == "Range")
+            _subtitles.InRange(false);
     }
 }

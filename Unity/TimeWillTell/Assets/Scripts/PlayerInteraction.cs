@@ -235,7 +235,7 @@ public class PlayerInteraction : MonoBehaviour
 
             else
                 // Can iterate VHS tapes.
-                _tv.PlayNext();
+                _tv.PlayNext("VHS");
         }
 
         // Uncomment lines below and re-toggle Interactive component on "TVPast"
