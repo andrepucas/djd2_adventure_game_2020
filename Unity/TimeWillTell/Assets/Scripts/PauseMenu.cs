@@ -48,6 +48,18 @@ public class PauseMenu : MonoBehaviour
         _ui.ShowSettingsMenu();
     }
 
+    public void ToControls()
+    {
+        _ui.HidePauseMenu();
+        _ui.ShowControlsMenu();
+    }
+
+    public void ToPause()
+    {
+        _ui.HideControlsMenu();
+        _ui.ShowPauseMenu();
+    }
+
     public void ToMenu()
     {
         Time.timeScale = 1;

@@ -15,6 +15,7 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private Image      _inspectImage;
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _settingsMenu;
+    [SerializeField] private GameObject _controlsMenu;
     [SerializeField] private Image      _crosshair;
 
     private DirectorySlot[] _inventorySlots;
@@ -148,6 +149,16 @@ public class UserInterface : MonoBehaviour
     public void HideSettingsMenu()
     {
         _settingsMenu.SetActive(false);
+    }
+
+    public void ShowControlsMenu()
+    {
+        _controlsMenu.SetActive(true);
+    }
+
+    public void HideControlsMenu()
+    {
+        _controlsMenu.SetActive(false);
     }
 
     public void UpdateInventoryIcons(List<Interactive> inventoryItems)
