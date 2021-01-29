@@ -67,18 +67,20 @@ public class TVControl : MonoBehaviour
         _videoPlayer.Play();
     }
 
-    public void PlayNext()
+    public void PlayNext(string type)
     {
         _queuePos += 1;
         
         if (_queuePos >= _videoClips.Count)
         {
             _queuePos = 0;
-            PlayNext();
+            PlayNext(type);
         }
 
         _videoPlayer.clip = _videoClips[_queuePos];
         _videoPlayer.Play();
+
+        if (type == "VHS") _subs.ReadVHS_0();
     }
 
     void Update()
@@ -86,7 +88,7 @@ public class TVControl : MonoBehaviour
         if (_loopQueue && _isOn && !_videoPlayer.isPlaying &&
             _videoPlayer.frame > 0 && !_gamePaused)
             
-            PlayNext();
+            PlayNext("ANY");
         
         if (Time.timeScale == 0f)
         {

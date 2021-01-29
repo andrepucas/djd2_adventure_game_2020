@@ -8,8 +8,7 @@ public class Subtitles : MonoBehaviour
     [SerializeField] private GameObject _subs;
     [SerializeField] private Text       _line;
 
-    private bool _subsOn;
-    private bool _reading;
+    private bool _subsOn, _reading, _inRange;
 
     void Start()
     {
@@ -19,23 +18,35 @@ public class Subtitles : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 1 && _reading && _subsOn && _inRange)
+            _subs.SetActive(true);
+        
+        else
             _subs.SetActive(false);
 
-        else if (_reading && _subsOn)
-            _subs.SetActive(true);
     }
 
-    public void SetSubs(bool toggle)
+    public void Set(bool toggle)
     {
         _subsOn = toggle;
+    }
+
+    public void InRange(bool inside)
+    {
+        if (inside) _inRange = true;
+
+        else _inRange = false;
     }
 
     public void ReadVHS_0()
     {
         if (_subsOn)
         {
+            StopAllCoroutines();
+            _line.text = "";
+            
             _subs.SetActive(true);
+            
             StartCoroutine(VHS_0());
         }
     }
