@@ -40,15 +40,20 @@ public class Subtitles : MonoBehaviour
 
     public void ReadVHS_0()
     {
-        if (_subsOn)
+        if (_subsOn && _inRange)
         {
-            StopAllCoroutines();
-            _line.text = "";
+            Stop();
             
             _subs.SetActive(true);
             
             StartCoroutine(VHS_0());
         }
+    }
+
+    public void Stop()
+    {
+        StopAllCoroutines();
+        _line.text = "";
     }
 
     IEnumerator VHS_0()

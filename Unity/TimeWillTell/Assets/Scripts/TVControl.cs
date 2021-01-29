@@ -40,12 +40,17 @@ public class TVControl : MonoBehaviour
         _videoPlayer.clip = _videoClips[_queuePos];
         _videoPlayer.Play();
         _isOn = true;
+        
+        if (_deletedNoSignal && _queuePos == 1)
+            _subs.ReadVHS_0();
     }
 
     public void Off()
     {
         _videoPlayer.clip = _videoClips[0];
         _isOn = false;
+        
+        if (!_loopQueue) _subs.Stop();
     }
 
     public void PlayTape(string tape)
