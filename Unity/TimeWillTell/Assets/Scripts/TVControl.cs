@@ -6,6 +6,7 @@ using UnityEngine.Video;
 public class TVControl : MonoBehaviour
 {
     [SerializeField] private GameObject         _tv;
+    [SerializeField] private Subtitles          _subs; 
     [SerializeField] private List<VideoClip>    _videoClips;
     [SerializeField] private bool               _loopQueue, _startOff;
     
@@ -49,9 +50,16 @@ public class TVControl : MonoBehaviour
 
     public void PlayTape(string tape)
     {
-        if (tape == "VHS_0" && !_deletedNoSignal)
-            _videoClips.RemoveAt(1);
-            _deletedNoSignal = true;
+        if (tape == "VHS_0")
+        {
+            _subs.ReadVHS_0();
+            
+            if (!_deletedNoSignal)
+            {
+                _videoClips.RemoveAt(1);
+                _deletedNoSignal = true;
+            }
+        } 
 
         _queuePos = 1;
         _videoPlayer.clip = _videoClips[_queuePos];
@@ -94,6 +102,6 @@ public class TVControl : MonoBehaviour
             _videoPlayer.Play();
             _tvAudio.enabled = true;
             _gamePaused = false;
-        }    
+        }
     }
 }
