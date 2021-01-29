@@ -48,12 +48,6 @@ public class PauseMenu : MonoBehaviour
         _ui.ShowSettingsMenu();
     }
 
-    public void Replay ()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1);
-    }
-
     public void ToMenu()
     {
         Time.timeScale = 1;

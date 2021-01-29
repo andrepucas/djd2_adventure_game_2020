@@ -7,7 +7,6 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private GameObject _directoryPanel;
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private GameObject _vhsPanel;
-    [SerializeField] private GameObject _journalPanel;
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private Text       _interactionText;
     [SerializeField] private GameObject _helpPanel;
@@ -20,7 +19,6 @@ public class UserInterface : MonoBehaviour
 
     private DirectorySlot[] _inventorySlots;
     private DirectorySlot[] _vhsSlots;
-    private DirectorySlot[] _journalSlots;
 
     #region Singleton
     public static UserInterface instance;
@@ -50,7 +48,6 @@ public class UserInterface : MonoBehaviour
 
         _inventorySlots = _inventoryPanel.GetComponentsInChildren<DirectorySlot>();
         _vhsSlots       = _vhsPanel.GetComponentsInChildren<DirectorySlot>();
-        _journalSlots   = _journalPanel.GetComponentsInChildren<DirectorySlot>();
     }
 
     private void Update()
@@ -174,18 +171,6 @@ public class UserInterface : MonoBehaviour
             
             else
                 _vhsSlots[i].ClearSlot();
-        }
-    }
-
-    public void UpdateJournalIcons(List<Interactive> journalItems)
-    {
-        for (int i = 0; i < _journalSlots.Length; i++)
-        {
-            if (i < journalItems.Count)
-                _journalSlots[i].AddSlot(journalItems[i]);
-            
-            else
-                _journalSlots[i].ClearSlot();
         }
     }
     

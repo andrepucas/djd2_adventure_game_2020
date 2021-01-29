@@ -7,7 +7,5 @@ public enum PickableType
     INVENTORY,
 
     VHS,
-
-    MEMORY
 }
 

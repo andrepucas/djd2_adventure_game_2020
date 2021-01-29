@@ -7,7 +7,6 @@ public class PlayerDirectory : MonoBehaviour
     
     [SerializeField] private List<Interactive> _inventory;
     [SerializeField] private List<Interactive> _vhsTapes;
-    [SerializeField] private List<Interactive> _journal;
 
     #region Singleton
     public static PlayerDirectory instance;
@@ -29,7 +28,6 @@ public class PlayerDirectory : MonoBehaviour
         _ui         = UserInterface.instance;
         _inventory  = new List<Interactive>();
         _vhsTapes   = new List<Interactive>();
-        _journal    = new List<Interactive>();
     }
 
     public void Add(Interactive item)
@@ -48,12 +46,6 @@ public class PlayerDirectory : MonoBehaviour
             {
                 _vhsTapes.Add(item);
                 _ui.UpdateVhsIcons(_vhsTapes);
-            }
-
-            else if (item.pickableType == PickableType.MEMORY)
-            {
-                _journal.Add(item);
-                _ui.UpdateJournalIcons(_journal);
             }
         }
 
@@ -77,12 +69,6 @@ public class PlayerDirectory : MonoBehaviour
         {
             _vhsTapes.Remove(item);
             _ui.UpdateVhsIcons(_vhsTapes);
-        }
-
-        else if (item.pickableType == PickableType.MEMORY)
-        {
-            _journal.Remove(item);
-            _ui.UpdateJournalIcons(_journal);
         }
     }
 
