@@ -4887,7 +4887,7 @@ GameObject:
   - component: {fileID: 169869866}
   - component: {fileID: 169869865}
   m_Layer: 0
-  m_Name: Filter
+  m_Name: PresentFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21464,7 +21464,7 @@ GameObject:
   - component: {fileID: 736516633}
   - component: {fileID: 736516632}
   m_Layer: 0
-  m_Name: Filter
+  m_Name: PastFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21512,8 +21512,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 22, y: 2, z: 19}
-  m_Center: {x: 3, y: 1, z: -3.43219}
+  m_Size: {x: 22, y: 4.001197, z: 19}
+  m_Center: {x: 3, y: 2.0005984, z: -3.43219}
 --- !u!1 &739451443
 GameObject:
   m_ObjectHideFlags: 0
@@ -57754,6 +57754,50 @@ Transform:
   m_Father: {fileID: 1054157055}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1875215466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875215467}
+  - component: {fileID: 1875215468}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 16
+  m_IsActive: 1
+--- !u!4 &1875215467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875215466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.43, z: -0.21}
+  m_LocalScale: {x: 1.2, y: 0.7, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 3910192191127818032}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1875215468
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875215466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1875270766
 GameObject:
   m_ObjectHideFlags: 0
@@ -58846,7 +58890,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1964372446}
         m_TargetAssemblyTypeName: Subtitles, Assembly-CSharp
-        m_MethodName: SetSubs
+        m_MethodName: Set
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -71681,6 +71725,7 @@ Transform:
   - {fileID: 449354254}
   - {fileID: 2116455995}
   - {fileID: 1424470081}
+  - {fileID: 1875215467}
   m_Father: {fileID: 2109733874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
