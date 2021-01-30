@@ -10,6 +10,7 @@ public class SettingsMenu : MonoBehaviour
     void Start()
     {
         _ui = UserInterface.instance;
+        QualitySettings.SetQualityLevel(2);
     }
     
     public void SetVolume (float volume)
@@ -20,7 +21,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality (int index)
     {
         if (index == 0) QualitySettings.SetQualityLevel(2);
-        if (index == 2) QualitySettings.SetQualityLevel(0);
+        else if (index == 2) QualitySettings.SetQualityLevel(0);
         else QualitySettings.SetQualityLevel(index);
     }
 
