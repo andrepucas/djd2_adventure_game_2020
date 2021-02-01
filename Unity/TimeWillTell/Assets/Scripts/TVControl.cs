@@ -41,8 +41,13 @@ public class TVControl : MonoBehaviour
         _videoPlayer.Play();
         _isOn = true;
         
-        if (_deletedNoSignal && _queuePos == 1)
-            _subs.ReadVHS_0();
+        if (_deletedNoSignal)
+        {
+            if (_queuePos == 1) _subs.ReadVHS(0);
+
+            else if (_queuePos == 2) _subs.ReadVHS(1);
+        }
+            
     }
 
     public void Off()
@@ -57,7 +62,7 @@ public class TVControl : MonoBehaviour
     {
         if (tape == "VHS_0")
         {
-            _subs.ReadVHS_0();
+            _subs.ReadVHS(0);
             
             if (!_deletedNoSignal)
             {
@@ -85,16 +90,24 @@ public class TVControl : MonoBehaviour
         _videoPlayer.clip = _videoClips[_queuePos];
         _videoPlayer.Play();
 
-        if (type == "VHS") _subs.ReadVHS_0();
+        if (type == "VHS")
+        {
+            if (_queuePos == 1) _subs.ReadVHS(0);
+
+            else if (_queuePos == 2) _subs.ReadVHS(1);
+        }
     }
 
     void Update()
     {
-        if (_loopQueue && _isOn && !_videoPlayer.isPlaying &&
+        if (_isOn && !_videoPlayer.isPlaying &&
             _videoPlayer.frame > 0 && !_gamePaused)
-            
-            PlayNext("ANY");
-        
+        {
+            if (_loopQueue) PlayNext("ANY");
+
+            else PlayNext("VHS");
+        }
+
         if (Time.timeScale == 0f)
         {
             // Fixes small sound glitches coming from the tv when paused.

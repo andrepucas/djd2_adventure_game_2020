@@ -38,7 +38,7 @@ public class Subtitles : MonoBehaviour
         else _inRange = false;
     }
 
-    public void ReadVHS_0()
+    public void ReadVHS(int tape)
     {
         if (_subsOn && _inRange)
         {
@@ -46,12 +46,15 @@ public class Subtitles : MonoBehaviour
             
             _subs.SetActive(true);
             
-            StartCoroutine(VHS_0());
+            if (tape == 0) StartCoroutine(VHS_0());
+
+            else if (tape == 1) StartCoroutine(VHS_1());
         }
     }
 
     public void Stop()
     {
+        _reading = false;
         StopAllCoroutines();
         _line.text = "";
     }
@@ -103,5 +106,15 @@ public class Subtitles : MonoBehaviour
         _subs.SetActive(false);
 
         _reading = false;
+    }
+
+    IEnumerator VHS_1()
+    {
+        _reading = true;
+
+        yield return new WaitForSeconds(1f);
+        
+        _line.text = 
+            "END OF DEMO. THANK YOU FOR PLAYING.";
     }
 }
