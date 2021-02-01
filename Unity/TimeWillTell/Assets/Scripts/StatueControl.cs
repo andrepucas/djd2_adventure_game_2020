@@ -49,7 +49,10 @@ public class StatueControl : MonoBehaviour
             _secretDoor.SetBool("Opened", true);
 
         }
+    }
 
-        
+    private void OnDestroy()
+    {
+        StatueBook.Pushed -= ComparePositions;
     }
 }

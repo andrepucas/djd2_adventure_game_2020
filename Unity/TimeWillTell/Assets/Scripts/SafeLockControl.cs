@@ -59,4 +59,9 @@ public class SafeLockControl : MonoBehaviour
             Solved();
         }
     }
+
+    private void OnDestroy()
+    {
+        SafeLockRotate.Rotated -= CompareCombos;
+    }
 }

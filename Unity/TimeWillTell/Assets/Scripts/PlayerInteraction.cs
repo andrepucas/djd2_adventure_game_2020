@@ -279,4 +279,10 @@ public class PlayerInteraction : MonoBehaviour
         if (_isInspecting && Input.GetMouseButtonDown(1))
             _ui.HideInspectMode();
     }
+
+    private void OnDestroy()
+    {
+        SafeLockControl.Solved  -= CombinationSolved;
+        ClockControl.Solved     -= CombinationSolved;
+    }
 }

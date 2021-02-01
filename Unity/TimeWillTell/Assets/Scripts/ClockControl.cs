@@ -48,4 +48,9 @@ public class ClockControl : MonoBehaviour
             Solved();
         }
     }
+
+    private void OnDestroy()
+    {
+        ClockUpdate.NextDigit -= CompareTime;
+    }
 }

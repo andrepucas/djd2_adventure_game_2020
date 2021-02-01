@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -13,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         _audioSource.Play(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void ToSettings()

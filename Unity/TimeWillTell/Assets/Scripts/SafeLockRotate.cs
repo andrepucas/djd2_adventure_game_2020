@@ -58,4 +58,9 @@ public class SafeLockRotate : MonoBehaviour
             sprite.color = Color.green;
         }
     }
+
+    private void OnDestroy()
+    {
+        SafeLockControl.Solved -= SolvedColor;
+    }
 }

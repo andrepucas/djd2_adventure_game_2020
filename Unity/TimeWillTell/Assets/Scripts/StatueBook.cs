@@ -55,4 +55,9 @@ public class StatueBook : MonoBehaviour
         _book.isActive = false;
         _anim.SetBool("Solved", true);
     }
+
+    private void OnDestroy()
+    {
+        StatueControl.Solved -= LockBook;
+    }
 }
