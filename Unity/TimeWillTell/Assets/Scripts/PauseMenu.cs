@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         _ui.HideCursor();
         _ui.HidePauseMenu();
         _ui.HideSettingsMenu();
+        _ui.HideControlsMenu();
 
         Time.timeScale = 1f;
         _isPaused = false;
