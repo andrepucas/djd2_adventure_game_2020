@@ -57,13 +57,13 @@ public class PlayerMemoryTravel : MonoBehaviour
         _controller.enabled = true;
 
         _inMemoryTravel = !_inMemoryTravel;
-        _memTravelReady = false;
+        _memTravelReady = true;
 
-        if (!_memTravelReady)
-        {
-            StartCoroutine(CooldownCourotine());
-        }
-        else _memTravelReady = true;
+        // if (!_memTravelReady)
+        // {
+        //     StartCoroutine(CooldownCourotine());
+        // }
+        // else _memTravelReady = true;
     }
 
     private IEnumerator CooldownCourotine()
