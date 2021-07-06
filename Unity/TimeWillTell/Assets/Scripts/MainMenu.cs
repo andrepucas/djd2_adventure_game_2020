@@ -10,6 +10,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField]  private GameObject _credits;
     [SerializeField]  private AudioSource _audioSource;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) ToMenu();
+    }
 
     public void Play()
     {
